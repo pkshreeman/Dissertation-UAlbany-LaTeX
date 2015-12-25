@@ -1,0 +1,2651 @@
+\input{20111213-pre-template}
+
+\usepackage{CNSEthesis}
+\usepackage{tikz-er2}
+\usepackage{cite}
+
+
+\begin{document}
+%\OnehalfSpacing
+\DoubleSpacing
+
+\settitle{Modified Statistical Dynamical Diffraction Theory:  A Novel Metrological Analysis Method for Partially Relaxed and Defective C-doped Si and SiGe Heterostructures}
+\setauthor{Paul K. Shreeman}
+\setdoctype{Proposal}
+%\masters % going for a Masters degree
+\doctors % going for a PhD
+\setdefdate{May 10, 2012}
+\setgraddate{2012}
+\setchair{Dr. Richard Matyi} % this one
+%\setchairs{A. Jones}{B. Doe} % or this one
+\setmembers{ Dr. Thomas Adam (IBM-CNSE) \\Dr. Hassaram Bakhru (CNSE)\\Dr. Kathleen Dunn (CNSE) \\  Dr. Mengbing Huang (CNSE)  }
+
+
+\frontmatter
+\proposaltitlepage % Title page for proposal only
+%\thetitlepage
+%\approvalpage
+
+\pagestyle{CNSE}%
+
+\cnseabstract
+
+The statistical dynamical diffraction theory, which has been initially developed by late Kato remained in obscurity for many years due to intense and difficult mathematical treatment that proved to be quite challenging to implement and apply.  With assistance of many authors in past (including Bushuev, Pavlov, Pungeov, and among the others), it became possible to implement this unique x-ray diffraction theory that combines the kinematical (ideally imperfect) and dynamical (the characteristically perfect diffraction) into a single system of equations controlled by two factors determined by long range order and correlation function within the structure.  The first stage is completed by the publication (Shreeman and Matyi, $J. Appl. Cryst.$, {\textbf{43}}, 550 (2010)) demonstrating the functionality of this theory with new modifications hence called modified statistical dynamical diffraction theory (mSDDT).  The foundation of the theory is also incorporated into this dissertation, and the next stage of testing the model against several ion-implanted SiGe materials has been published: (Shreeman and Matyi, {\textit{physica status solidi (a)}} {\textbf{208(11)}}, 2533-2538, 2011).  The dissertation with all the previous results summarized, dives into comprehensive analysis of HRXRD analyses complete with several different types of reflections (symmetrical, asymmetrical and skewed geometry). The dynamical results (with almost no defects) are compared  with well-known commercial software.  The defective materials, to which commercially available modeling software falls short, is then characterized and discussed in depth.  The results will exemplify the power of the novel approach in the modified statistical dynamical diffraction theory:  Ability to detect and measure defective structures qualitatively and quantitatively.  The analysis will be compared alongside with TEM data analysis for verification and confirmation.  The application of this theory will accelerate the ability to quickly characterize the relaxed/partially relaxed/fully strained semiconductors using non-destructive HRXRD metrology.
+
+
+
+
+\cnsethesis
+{\centering%
+\emph{The formation of the defects within C-Doped Si and Si$_{1-x}$Ge$_{x}$ layered structures can be effectively described by the application of the modified statistical dynamical diffraction theory (mSDDT) to high-resolution x-ray diffraction (HRXRD), and that this knowledge can help us better understand the development of the defect structure in this material.
+}}
+
+
+\chapterstyle{cnse}%
+
+\tableofcontents
+\listoffigures
+\listoftables
+\mainmatter
+\chapter{Introduction}
+
+Modern microelectronics is a mainstream technology, playing major role in many aspects in the everyday life.  Smart phones, mobile tablets, ever-evolving computers and laptops, monitors and TV all incorporate semiconductor technology today.  This only covers the public consumers, not considering military, industrial, and academic applications' impact on the semiconductor market.  As result, modern technology has been growing exponentially over past several decades.  In the field, \textit{Moore's law} is often cited as a reference for the semiconductor growth.  The features within the electronic structures (such as integrated circuits commonly known as ``chips'') continue to decrease dramatically in physical size, while increasing in density (doubling every 18 months).  As the unique features within the structures decrease in size, many new types of challenge are faced in the nanotechnology field.  
+
+{\SingleSpacing
+\begin{itemize}
+\item[1] The features are optically invisible.
+\item[2] Known bulk properties of a given material is no longer reliable reference.
+\item[3] Increased sensitivity to the defects.
+\end{itemize}
+}
+
+Many features within the integrated circuits are on the nanometer scale.  As result, many of the typical characterization methods are increasingly becoming insufficient. For example, in optics,  visible wavelengths are approximately between 400 to 750 nm while the features being discussed are within the 100 to 10 nm size range.  Defects could be 300 nm (300\%) of  the feature size and remain literally invisible.  For optical observations, electron-based (such as scanning electron microscopy (SEM) and transmission electron microscopy (TEM)) or X-ray based ( X-ray topography) are are usually used for imaging the materials.  
+
+As the materials and designs scale down to nanometer range, many ``new'' properties becomes apparent.  One of excellent examples is the copper resistivity issue.  As the ``wires'' of copper in integrative technology decreases in size, the resistivity increases in proportion to inverse of cross-section area (if the length of wire is kept intact).  In photolithography and optical related applications, the diffraction phenomena is common as the scaling approaches the physical size of the wavelengths of the visible spectrum.  For more in-depth discussion and overview of scaling laws as it applies to scaling to micro/nanoworld, please refer to this work \cite{Wautelet1}.
+
+The issues surrounding defects within the semiconductor will be discussed more in-depth in next several chapters.   The basic idea is that if the structure, especially the thin-film heterostructures comprised of epitaxial layer of few atoms thick, will be extremely sensitive to minor infractions of crystalline quality of substrate or the interface between the layers.  
+ 
+
+The appeal of using X-rays as a metrological tool are many:  
+
+{\SingleSpacing
+\begin{itemize}
+\item[1]  X-rays wavelengths range is approximately 10 to 0.01 nanometers.  One of the commonly used radiation sources in X-ray diffraction (Cu$_{\kappa_\alpha}$) is approximately 0.15nm.
+\item[2]  There are affordable high-intensity X-ray sources available for fab installations, and the academic laboratories.  The availability of lab tools (i.e. not synchrotron based) with high intensity X-ray sources are relatively recent. 
+\item[3] X-ray methods provides an excellent high-throughout metrological tool. The process for X-ray diffraction characterizations are completely non-destructive and does not require any sample preparations.
+\end{itemize}
+}
+The relative ease of using X-ray tool for quick semiconductor tool for fabrication plants focused on quality of crystalline substrate/films is very appealing.  The issues are that the currently known available tools are relatively limited to powder analysis, or else relatively perfect crystalline structures.  The common application of general XRD is to characterize the unknown materials by powder method, and to identify the diffraction peaks based on material databases.  For thin-films, the HRXRD metrology is commonly used to study the strain of the epitaxial layers.  However, there is currently no commercially available or known approaches at this time to analyze the layers that are partially to fully relaxed.
+
+This dissertation research addresses the need for the ability to characterize quantitatively and qualitatively the modern-day electronics that manifest neither perfectly crystalline or ideally imperfect crystals.  
+
+
+
+
+
+\chapter{Examples of Materials of Interest}
+
+Thin-film heterostructure such as Si/SiGe and Si/Si:C will be presented in this section as part of introduction to the basic structure in many of the modern-day microelectronics.  These types of basic structures are key components where electronic properties can be manipulated by strain or relaxation of the epitaxial layer(s) on the substrate.  For example, in epitaxial layers of SiGe, it can be used to enhance the hole mobility in pMOS, while SiC can be used to enhance electron carrier mobility in nMOS type devices (\fref{MOS}).
+
+\begin{figure}[h]
+\caption{Illustrations of NMOS and PMOS respectively}
+\label{MOS}
+\begin{minipage}{0.5\linewidth}\includegraphics[width=\linewidth]{SiC-NMOS}\end{minipage}\begin{minipage}{0.5\linewidth}
+\includegraphics[width=\linewidth]{SiGe-PMOS}\end{minipage}\end{figure}
+
+
+\section{Introduction of SiGe}
+
+	The number of the publications on SiGe (Silicon Germanium) is large.  The suggested listing of reading is wholly incomplete and only serve as a starting point, along with pointers in current research interests in SiGe technology:
+
+{\SingleSpacing
+\begin{itemize}
+\item  A patent using Schottky barrier diode on a SiGe Bipolar complementary metal oxide semiconductor (BiCMOS) wafer for 1.0 THz or above cutoff frequency based on epitaxial layer \cite{JOHNSON:2011}
+\item A throughout review article covering SiGe applications in complementary metal oxide semiconductor (CMOS) and heterojunction biploar transistor (HBT)  \cite{Paul1}
+\item  An article addressing the issues of relaxation of SiGe  in development for p-type metal oxide semiconducto field effect transistor (PMOSFET) \cite{Yu1}
+\item Study of selective epitaxial growth of Boron doped SiGe for PMOSFET \cite{Kolahdouz1}
+\item  Another paper focusing on millimeter wave transistors, using selective epitaxial growth methods \cite{Fox1}
+\item In-depth study of SiGe strain relaxation based on different crystal orientations \cite{Trinkaus1}
+\item Study of highly strained SiGe epi-layer on silicon on insulator (SOI) for PMOSFET applications \cite{Suh1}
+\item Interesting analysis of SiGe scratch resistance \cite{Lin3} 
+\item Discusses the fully-relaxed SiGe on SOI \cite{Xue1}
+%\item Selective epitaxial growth for quantum wells application \cite{Ren1}
+\end{itemize}
+}
+
+There are several reasons why the wafers composed of bulk Silicon (Si) are central to the semiconductor industry.  The ease and availability of near-perfect boules for Si wafers can be commercially grown and provide to be the cheapest material for electronics.  The SiGe with the variable of Ge as function of $x$ in Si$_{1-x}$Ge$_x$ allows for variable strain based on the Ge percentage of the film.  For illustration, please see the phase diagram (\fref{SiGePhase}).  Regardless of composition, the crystalline structure will remain diamond.
+ \begin{figure}
+\caption{Phase Diagram of SiGe \cite{Fig2-2}}
+\label{SiGePhase}
+\centering
+\includegraphics[width=0.75\linewidth]{SiGe-Phase.jpg}
+\end{figure} 
+ The lattice parameter relationship between Ge (which has 4.2\% larger lattice constant) and Si can be reasonably modeled by Vegard's law \cite{Denton1}.  Vegard's law approximates that at constant temperature, a linear relationship exists between crystal lattice constant and the alloy's composition of the elements.
+
+\subsection{Relaxation and Strain of SiGe}
+
+\begin{figure}[ht]
+\caption{Strain Schematic Diagram \cite{Paul1} }
+\label{StrainSch}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=0.85\linewidth]{StrainScheme1}
+\end{minipage}
+\end{figure}
+
+Using the modified \fref{StrainSch} from the article \cite{Paul1}, it is observable that  the relationship between compressive strain occurs when the epitaxial layer's lattice parameter is larger than the substrate (a) to (b), and if the epitaxial layer's lattice parameter is smaller than substrate that it will undergo tensile strain (c) to (d).  In both cases, the epitaxial layer experience tetragonal lattice distortion.  The epi-layer can be strained up to a point, depending on the thermodynamic equilibrium, where the energy of strain exceeds the energy associated with development of defects.  The critical thickness of the epitaxial layer exists where the energy of defect development will exceed the strain's energy.  One of models that attempt to predict the critical thickness based on propagation of threading dislocation is known as Matthews-Blakeslee model \cite{Matthews1,Matthews2,Matthews3}.  This critical thickness parameter depends on many growth parameters:  type of growth (MBE, CVD, etc), types of chemical reactions, percentage of Ge incorporation, growth rate and temperature of the process.  There are several models designed to predict the critical thickness explained in the review article \cite{Paul1}.  The most common defect development to relieve the strain for SiGe is known as \emph{$A/2<110> 60^{\circ}$} dislocation type.  This threading dislocation is due to misfit dislocation (see \fref{misfitSiGe}).  
+\begin{figure}[h]
+\caption{Diagram of misfit dislocation \cite{Fig2-4}}
+\label{misfitSiGe}
+\begin{minipage}{\linewidth} 
+\centering
+\includegraphics*[width=0.65\linewidth]{misfitSiGe}
+\end{minipage}
+\end{figure}
+
+For additional illustration, please refer to \fref{SiGe60-1}, which is TEM micrograph of 170 nm thick relaxed Si$_{0.7}$Ge$_{0.3}$ layer on Si Substrate. The $60^{\circ}$ dislocations are visible as triangular shaped lines, and the dark line exemplifies the fully defective interface between layer and the substrate.  
+
+\begin{figure}[h]
+\caption{Common $60^{\circ}$ dislocations in Si$_{0.7}$Ge$_{0.3}$ }
+\label{SiGe60-1}
+\begin{minipage}{\linewidth} 
+\centering
+\includegraphics*[width=0.65\linewidth]{SiGe60-1}
+\end{minipage}
+\end{figure}
+
+The one of the current challenges is to increase the strain of the SiGe layer, further enhancing the hole mobility.  However, as the germanium content is increased to create more strain, it becomes more likely to create more dislocations and defects.
+
+ 
+
+\section{Introduction of SiC}
+
+	 This section on SiC is included for an additional illustration of materials that would be ideal candidate for this thesis work. 
+
+{\SingleSpacing
+\begin{itemize}
+\item A  study of CMOS with SiGe and SiC source/drain stressors \cite{Ang1}
+\item SiC for MOSFET applications \cite{Itokawa1,Calmes1,Chang1}
+\item Study of electron mobility \cite{Chang1}
+\item Micro-elecromechanical systems \cite{Forster1}
+\item 1 T-DRAM Flash Memory \cite{Han1}
+\item N-type MOS devices \cite{Hartmann2, Hartmann1}
+\end{itemize}
+}
+
+ In addition, there are many other applications of carbon incorporation such as carbon implantation for transient enhanced diffusion barriers \cite{Guedj1} and controlling the strain in SiGe by carbon incorporation \cite{Kramer1,Eberl1,Pantelides1}
+
+There are several crystal types of SiC.  However, there are only one that has cubic structure type called 3C-SiC also called $\beta$-SiC.  This ``cubic SiC'' has the zincblende structure, and is the structure which grows on the Si substrates (which has diamond structure).    A excellent review \cite{Davis1}, along with other papers, \cite{Liu2,Golecki1}, describes the mismatch between Si Substrate and the $\beta$-SiC to be 20\% in lattice parameters and 8\% in thermal expansion coefficients. The mismatch between these materials is extreme for an epitaxially  \emph{thin} (and perfect) $\beta-$SiC layers on Si substrates.  These types of $\beta-$SiC films are usually several micrometer thick, with high defect contents within the interface layers.  
+
+Instead, an alternative tensile-strained Si layer with varying substitutional carbon content incorporation may be used.  The growth of these initial layers does not have a specific crystalline structures, and the carbon substitutions are randomized.  The literature commonly refer these thin films as Si$_{1-x}$C$_x$ with $x$ as percentage of carbon incorporation of the given layer.  As the incorporation of the carbon increases (substitution of Si atoms with C atoms in the lattice), the tensile stress of layer increases.  Even though there is reported 7\% carbon incorporation based on MBE growth \cite{Eberl1}, the limit of 2\% is generally assumed due to low solubility of C in Si ($10^{-4}\%$ at $1400 \degC$)\cite{Hartmann1}.
+
+The challenge in carbon incorporation where the greater strains also usually mean greater chances of defect development warrants more in-depth study.  For example, Berti et al \cite{Berti1} discusses the deviations of Vegard's rule (linear interpolation) in regard to lattice parameters in relationship with carbon incorporation.  Kovats et al  \cite{Kovats1} discusses the issue of $\beta-$SiC precipitation growing within the Si$_{1-x}$C$_x$ layer (See \fref{SiC-defect}).  Clearly, there is fine line between carbon incorporation for Si lattice manipulation (tensile-strained Si layer on Si substrate, for instance) instead of forming actual $\beta-$SiC crystals with numerous defects.  The main objective is to form a pseudomorphically thin Si$_{1-x}$C$_x$ layer with specific strain profile, without defects.  
+
+\begin{figure}[h]
+\centering
+\caption{3C-SiC precipitates (marked by $p$) \cite{Lindner1}}
+\label{SiC-defect}
+\includegraphics[width=0.75\linewidth]{SiC-defects}
+\end{figure}
+
+The challenge remains in the fact that only at exactly $50\%$ carbon composition that a single phase exists in equilibrium.  The non-$50\%$ carbon composition is two phased ($\alpha$-SiC for less than $50\%$ and $\beta$-SiC for more than $50\%$).  These phases are illustrated in the Si-C phase diagram (\fref{SiC-Phase}.
+\begin{figure}[h]
+\caption{Phase Diagram of Si-C}
+\label{SiC-Phase}
+\centering
+\includegraphics[width=0.75\linewidth]{SiC-Phase.jpg}
+{http://www.ioffe.ru/SVA/NSM/Semicond/SiC/thermal.html}
+\end{figure}
+
+\subsection{Growth Methods}
+
+Molecular beam epitaxy (MBE) can be used \cite{Eberl1,Fissel1}, however the growth rate is too slow in MBE for the fabrication process for industrial applications.  A novel growth procedure called solid phase epitaxy (SPE) was proposed by Strane \cite{Kramer1,Strane1}.  Regardless, chemical vapor deposition (CVD) appears to be the most practical and economical growth method for this study. However, with the conventional CVD processes, the temperature is relatively high $(\geq 1300\degC)$, making it unsuitable for semiconductor processing.   There are variations of CVD method such as  UHVCVD (ultra-high vacuum chemical vapor deposition) \cite{Calmes1}, reduced pressure chemical vapor deposition \cite{Hartmann1,Hartmann2}, and plasma enhanced CVD (PECVD) \cite{Ambrosone1,Coscia1,Coscia2,Coscia3,Basa1,Tong1,Ambrosone2,Ambrosone3,Ambrosone4,Basa3} that allows for the depositions to occur at much lower temperature, making it suitable for semiconductor processing.
+
+\section{Characterization of Materials of Interest}
+
+This section focuses on the \emph{potential} of the dissertation's work.  The modified Statistical Dynamical Diffraction (mSDDT), which has been developed as result of this thesis, provides the opportunity to specifically characterize given materials based on several parameters:
+
+{\SingleSpacing
+\begin{itemize}
+\item{thickness}
+\item{strain}
+\item{composition}
+\item{long order}
+\item{type of defect}
+\end{itemize}}
+ 
+Two extreme examples to which this work can be applied to in respect to the materials of interest.  The graded SiGe (\fref{gradeSiGe}) from the useful introductory website \cite{Fig2-2} provides an useful analogy.  
+
+\begin{figure}[h]
+\caption{An Example of Material of Interest: graded SiGe}
+\label{gradeSiGe}
+\centering
+\includegraphics[width=0.75\linewidth]{gradeSiGe.jpg}
+\end{figure}
+
+As part of the mSDDT model, the correlation length (which will be described in depth in later sections) uses mosaic blocks as a defect model.  In this approach, the proposal is to characterize the dislocations as a mosaic blocks that will diffract  at angular deviation.  With the inclusion of defect structure model, mSDDT can predict nominal structures such as strain, composition, and thickness of given layer with much more accuracy and precision than what is currently available.  In \fref{gradeSiGe2}, the proposed mosaic blocks are superimposed on the \fref{gradeSiGe} for illustrative purpose, where the proposed model will attempt to predict given thickness of layer with average angular deviation of mosaic blocks and the overall order of the structure \emph{each} layer as represented by white lines and arrows.
+
+\begin{figure}[h]
+\caption{Graded SiGe with Mosaic Model}
+\label{gradeSiGe2}
+\centering
+\includegraphics[width=0.75\linewidth]{gradeSiGe-2.jpg}
+\end{figure}
+
+Another example (\fref{SiC-example}) based on Berti et al work \cite{Berti2}:  Si$_{1-y}$C$_y$ alloy with carbon precipitates.  Another possible model for correlation length, spherical model, is superimposed on the figure (\fref{SiC-example2}).  Again, the proposed model would be able to extract nominal structure information:  strain, composition, and thickness of given layer (represented by white lines and arrows) with ease.  Meanwhile, the ultimate goal is to be able to accurately predict the overall structure of defects:  long order and the average sphere radii size.
+
+\begin{figure}[h]
+\caption{An Example of Material of Interest: Si$_{1-y}$C$_y$ alloy}
+\label{SiC-example}
+\centering
+\includegraphics[width=0.75\linewidth]{SiC-example.jpg}
+\end{figure}
+
+
+\begin{figure}[h]
+\caption{Si$_{1-y}$C$_y$ Alloy with Spherical Model}
+\label{SiC-example2}
+\centering
+\includegraphics[width=0.75\linewidth]{SiC-example2.jpg}
+\end{figure}
+
+\chapter{X-Ray Diffraction Fundamentals}
+
+It is grave injustice to discuss the X-ray diffraction theory in a single thesis, and in attempt to counter that limitation, several books will be briefly discussed.  One of the modern comprehensive book on dynamical theory, even providing a brief overview of SDDT as proposed by Kato is discussed by {\textit{Dynamical Theory of X-ray Diffraction}} \cite{Authier1}.  The classical texts that should prove to be extremely useful for students in this field:  {\textit{X-Ray Diffraction}} \cite{Warren1} which is mostly kinematical in treatment, and classical text on dynamical treatment by {\textit{Theory of X-Ray Diffraction in Crystals}} \cite{Zachariasen1}.  For application-driven approach, the HRXRD treatment is discussed in  {\textit{High Resolution X-ray Diffractometry and Topography}}\cite{Tanner1}, and to a different approach (more focused on defects), {\textit{High-Resolution X-Ray Scattering}} \cite{Holy2}.  For more textbook feel,  {\textit{Elements of X-ray Diffraction}} \cite{Cullity1} or {\textit{Elements of Modern X-ray Physics}} \cite{Als1} may be suitable.  Finally, but one of the most indispensable resource is {\textit{International Tables of Crystallography: Mathematical, Physical and Chemical Tables}} \cite{ ITC3} which contains many necessary references for work in this field.
+
+	\section{Crystallography}
+
+A discussion of X-ray diffraction requires some familiarity with crystallography which is the study of the crystalline materials.  One of the good introductory texts, \textit{The Basics of Crystallography and Diffraction} \cite{Hammond1} can be referred for more in-depth treatment.  The crystals are defined based on repeatable patterns of atomic arrangements.  There are limited geometric selections to what kind of pattern can be formed, but materials can usually be identified based on its atomic (molecular, or even compounds) structures.  Starting with one of most basic structure (\fref{cube}) which is a box of single atom basis with each corner occupied by $1/8$ of the atom.
+
+\begin{figure}[h]
+\caption{The simple cube lattice is shown along $[001]$ direction on left, while one on right is in [111] direction}
+\label{cube}
+\begin{minipage}{0.5\linewidth}
+\centering
+\includegraphics[width=0.5\linewidth]{cube004}
+\end{minipage}\begin{minipage}{0.5\linewidth}
+\includegraphics[width=0.5\linewidth]{cube111}
+\end{minipage}
+\end{figure}
+
+    Silicon, one of the most commonly used material for integrated circuits has the diamond lattice \fref{SiLattice}.  In addition, the SiGe and  SiC will also ideally have the same structure (i.e. fully strained layers). Due to these diamond structures,  three main reflections of these planes will be used:  (004),(113) and (224) illustrated in \fref{reflections}.
+
+
+
+\begin{figure}[h]
+\caption{The diamond lattice is shown along $[001]$ direction on left, while one on right is in [111] direction}
+\label{SiLattice}
+\begin{minipage}{0.5\linewidth}
+\centering
+\includegraphics[width=0.5\linewidth]{diamond-a}
+\end{minipage}\begin{minipage}{0.5\linewidth}
+\includegraphics[width=0.5\linewidth]{diamond-abc}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+\caption{The miller planes of (004), (113), and (224) are shown respectively within the diamond unit cell to illustrate the different reflections of diffraction being characterized in HRXRD in this study.}
+\label{reflections}
+\centering
+\begin{minipage}{0.25\linewidth}
+\includegraphics[width=\linewidth]{004.jpg}
+\end{minipage}\begin{minipage}{0.30\linewidth}
+\includegraphics[width=\linewidth]{113.jpg}
+\end{minipage}\begin{minipage}{0.30\linewidth}
+\includegraphics[width=\linewidth]{224.jpg}
+\end{minipage}\\
+Illustrations created by \emph{Crystallographica} \cite{Siegrist1}, available at http://www.oxcryo.com/software/crystallographica/crystallographica/
+\end{figure}
+
+	\section{Scattering of X-Rays}
+
+The scattering of the X-rays, which is the basis of the X-ray diffraction, depends on the numbers of the electrons available for scattering within an atom.  Each atom has different scattering amplitude known as the \emph{atomic scattering factor} ($f_n$) that depends on numbers of electrons and the angle of scattering. The crystalline structure has identical units of given geometric pattern of atomic basis (i.e. Si in diamond lattice)  in a repeating matrix that could constructively or destructively amplify the electromagnetic waves.  For these amplification calculations, the \emph{structure factor} ($F_{HKL}$) is used.  The structure factor sums up the vectors of the atomic positions in a given unit cell, angles of incoming and outgoing X-ray waves, and the atomic scattering factor into a single value.  
+\begin{align}
+F_{HKL} = \sum^N_{n=0} f_n \exp 2\pi i (hu_n +kv_n + lw_n)
+\end{align}
+where $f_n$ is atomic scattering factor, and $h,k,l$ represents the reflection type (the angle of the diffraction) with respect to the fractional coordinations of nth atom  ($u_n,v_n,w_n$) in given unit cell.  For a very \emph{rough} approximation, it could be stated that the intensity of the given reflection is proportional to the square of the structure factor.  
+
+
+In a different perspective, the mathematical treatment incorporates the electron density of the material (commonly denoted as $\rho (\vec{r})$) to calculate the dielectric susceptibility or polarizability.  The Fourier expansion of the polarizability has same format as the structure factor \cite{Authier1}.
+\begin{align}
+\chi_{HKL} = - \frac{R \lambda^2 F_{HKL}}{\pi V}
+\end{align}
+where $\chi_{HKL}$ is polarizability of the given material, $R$ - classical radius of the electron, X-ray wavelength as $\lambda$, and $V$ as volume of the unit cell.
+
+In fact, the polarizability is directly proportional to the structure factor, but also may incorporate additional parameters such as anomalous dispersion corrections (also known as H\"onl corrections \cite{Batterman1}) and the Debye-Waller factor.  Special note must be made here to signify the term, \emph{Debye-Waller factor}.  In classical terms, this factor is a temperature factor, based on atomic vibrations.  In later sections on the statistical dynamical diffraction theory, there is a new parameter formally called \emph{static} Debye-Waller factor.  The mathematical format is very similar, but is \textbf{not} temperature related or to the classical employment of Debye-Waller factor.
+
+	\section{Fundamentals of X-ray Diffraction}
+
+
+		Crystalline structures exhibits diffraction properties that can be described by well-known Bragg's Law illustrated in  \fref{BraggLaw}\footnote{The figure was modified from CNSE course presentation materials}. 
+\begin{figure}[h]
+\caption{Bragg's Law}
+\label{BraggLaw}
+\begin{minipage}{\linewidth} 
+\centering
+\includegraphics*[width=0.65\linewidth]{BraggLaw}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\begin{align}
+\lambda=2d \sin \theta
+\end{align}
+$\lambda$ is the wavelength of the source X-ray, $d$ or $d_{HKL}$ as shown in figure is represented as a distance between two lattice planes, along with the angle ($\theta$, or commonly notated as Bragg angle of reflection, $\theta_B$)
+\end{minipage}
+\end{figure}
+
+An example of X-ray diffraction phenomena being observed is called a \emph{rocking curve} (\fref{RC1}) where the sample is rotated with the X-ray source and detector fixed at given angle that would satisfy one of the Bragg's Law conditions , and the intensity is roughly proportional to the complex conjugates of structure factor (or the polarizability) of the given material.  The actual values of intensity depends on two different complementary theories:  kinematical (geometric) theory and dynamical theory which will be discussed in more depth in next sections.  
+
+\begin{figure}[h]
+\centering
+\caption{Sample Rocking Curve}
+\label{RC1}
+\includegraphics[width=0.5\linewidth]{RC1.jpg}\\
+\emph{I} represents the observed diffracted intensity of X-rays from the sample, and the $\theta$ is the function of sample being moved in diffractometer, and the center is usually at the exact Braggs angle normalized to zero.
+\end{figure}
+
+
+
+
+	\section{Kinematical Diffraction}
+
+In this approach, there are several key assumptions that are made.  First, only the single scattering events are considered:  Each X-ray wave are individually considered, without any interaction between the waves.   Using the approach of plane geometry presented in Bragg's Law, the next figure \fref{SingleEvent} illustrates this point.  
+
+\begin{figure}[h]
+\caption{Single Events}
+\label{SingleEvent}
+\includegraphics[width=\linewidth]{SingleEvent2.jpg}
+The event \#1, \#2c \& \#3 are all added up respectively to their position of diffraction as function of depth ($z$) (can be defined as thickness).  The event \#2a \& \#2b may or may be considered, however is not part of final diffracted intensity.  The key point is that each event is independent of each other.
+\end{figure}
+ 
+The next assumption is that the crystals are small and distant from the X-ray detector.    This assumption allows for the plane-wave approximation of the X-ray if the crystal is ``far enough'' from the source.  The assumption with the small crystal is due the relationship between the calculated sample region of the crystal.  
+
+The diffraction peak will increasingly become stronger in intensity, and more narrow as the thickness of the crystal increases.  Bulk samples (i.e. wafers) would generate delta functions (infinitely intense with zero width) in the calculations.  These pitfalls will be discussed in next few sections.  However, these assumptions bode well for simplified calculations, and quick analysis of powder and ``ideally imperfect'' crystals.
+
+The full width at the half maximum (FWHM) is the accepted standard of measuring the width of the diffraction.  In the kinematical theory, FWHM is inversely proportional to the total thickness of the sample being irradiated.  In addition, the total observed intensity will also increase in proportion to the thickness squared.  As result,  the observed intensity, according to the current theory, will progressively become a delta function which is not accurate portrayal of XRD of thick samples (~microns).  
+
+
+	\section{Dynamical Diffraction}
+
+For the bulk near-perfect crystals, the dynamical diffraction theory offers an electromagnetic solution with Maxwell's equations describing the interactions between the X-rays and the materials. One of the main difference between the kinematical and dynamical diffraction theories is the coupling between incident and diffracted waves within the material.  The illustration,  \fref{MultiEvent}, show shaded triangle $abc$ of coupling waves.  The dynamical solution considers the multiple events simultaneously, integrating the interactions of waves (both incident and diffracted waves) within the matrix of the given boundary conditions.  For a bulk sample, the classical dynamical solution is very straightforward:
+\begin{align}
+I_h = \abs{\eta - \text{Sign}(n_r)\sqrt{\eta^2 - 1}}\label{classic1}
+\end{align}
+where $I_h$ is the observable intensity of rocking curve. Based from Authier's book \cite{Authier1}, \fref{GaAs004} is a traditional rocking curve based on bulk material in 004 reflection of GaAs (Gallium arsenide).  The equation \ref{classic1} is basically just a function of deviation parameter, $\eta$.
+
+\begin{align}
+\eta = \frac{(\theta -\theta_B) \sin (2\theta_B) + \chi_o}{\sqrt{\chi_h \chi_{\overline h}}}
+\end{align}
+ where the $\theta_B$ is the Bragg angle of given material, the polarizability (represented by $\chi$) in directions (incident ($o$), diffracted ($h$), and back-diffracted ($\overline h$), and the angular scan ($\theta$).  For much more in-depth reading on the classical dynamical theory, the review article  by Batterman and Cole \cite{Batterman1} is recommended. For the discussion of the wave interactions within the crystalline matrix, please refer to an article by Slater \cite{Slater1}.  
+
+
+\begin{figure}[h]
+\caption{Bulk 004 GaAS Rocking Curve \cite{Authier1}}
+\label{GaAs004}
+\includegraphics[width=\linewidth]{004GaAS.jpg}
+The two plots are represented by two different calculations:  the square (dotted) plot represents ideally non-absorbing crystal, while the solid plot represents a realistic absorbing crystal rocking curve of GaAs.
+\end{figure}
+
+  The \emph{dielectric susceptibility} is the integral part of the Maxwell's equations, and is assumed to be \emph{constant}.  This primary assumption is one of the pivotal issues in classical dynamical theory, and unfortunately is the major weakness in constructing solutions for modern structures such as thin film technology.  The illustration (\fref{clas-tf} shows the schematics behind the basic dynamical diffraction modelling.  The layers of the structure (whether it is abrupt, transitional, etc) determine the definition of the polarizability.   Instead of a constant for the electron density, the polarizability becomes a function of depth.  In addition, the recursion calculation is necessary to modulate the diffraction through different electron densities (i.e. layers).  As result, a different method of dynamical calculations is necessary.
+\begin{figure}[h]
+\caption{Bulk to Thin Film Structure}
+\label{clas-tf}
+\includegraphics[width=\linewidth]{classical-thinfilm.jpg}
+The transition between bulk to thin film is dramatically different for classical dynamical modeling.  The classical diffraction profile of layered structure, along with possible \emph{slight} imperfect interface in between proves to be impractical.
+\end{figure}
+
+
+\begin{figure}[h]
+\caption{Multiple Events}
+\label{MultiEvent}
+\includegraphics[width=0.85\linewidth]{MultiEvents2.jpg}\\
+The shaded triangle $abc$ represents area of imaginary boundary conditions for Maxwell's classical dynamical solution that incorporates interactions between incident and diffracted waves.  The $z$ represents the depth starting at surface of sample.
+\end{figure}
+
+
+	\subsection{Tapuin-Takagi Model}
+
+Fortunately, a modification of the dynamical theory by Takagi and Tapuin\cite{Takagi1,Takagi2,Taupin1} resolved the issue of functional polarizability by generalizing the solution to accept a \emph{small} fluctuations.  The proposed solution did use functional polarizability, however dropped terms that are considered \emph{small enough}, simplifying the equations enough for generalized solution for \emph{slightly} distorted crystals.  
+
+There are several variations of the Tapuin-Takagi (T-T) equations being used in literature.  Two common formats of computation-friendly equations are partial differential equations (PDE) or Reimann sum, and many authors have developed their own nomenclature of T-T equations.    In this dissertation, the PDE format in Bushuev's definitions and notations are used \cite{Bushuev1,Bushuev2}.  For illustration, the Appendix \ref{Compare2} compares two different approaches by two different authors:  A well-known dynamical treatment by Bartels et al  \cite{BHL1} and the background of this thesis approach \cite{Bushuev1,Bushuev2}. 
+
+	
+
+	\section{Applications of High Resolution X-ray Diffraction}
+
+There are several commercial software that provides tools for analyzing XRD data such as \LEPTOS \cite{LEPTOS}  and \RADS \cite{RADS}.  In this \fref{Leptos1},  a snapshot of \LEPTOS is used to illustrate what the software is designed to perform in respect to XRD data anaylsis.
+
+\begin{figure}[h]
+\centering
+\caption{\LEPTOS snapshot}
+\label{Leptos1}
+\includegraphics[width=0.75\linewidth]{leptos-snapshot2.jpg}
+\end{figure}
+
+The high-resolution aspect (HRXRD) allows for much higher resolution that only spans few arcseconds in the reciprocal space with much greater detail than a typical XRD scans.  The fringes seen around the layer peak is proportional to the thickness of the layer, and the distance between substrate and layer peak determines the lattice difference (strain and composition).  Other software commonly offers similar type of tools, and they all are based on variants of dynamical theory.  The dissertation will discuss the differences and comparisons between these software in later chapters.
+
+
+	\section{Shortcomings and Challenges in the X-ray Diffraction Theories}
+
+
+Many critical materials and structures (such as lattice-mismatched semiconductor heterostructures, or materials modified by ion implantation or impurity diffusion processing) are characterized by the presence of process-induced structural defects.  These materials cannot be modeled by the conventional model of dynamical theory of a nearly-perfect single crystal layers on a perfect single crystal substrate. Alternative approaches to the dynamical theory approach include the work of Servidori \cite{Servidori1} and Shcherbachev and coworkers \cite{Shcher1}.  In both cases, the authors explicitly incorporate the effects of structural defects via the inclusion of a static Debye-Waller factor that modulates the dynamically diffracted amplitude. 
+
+This approach is highly effective in providing quantitative modeling of structures that are only slightly perturbed from the ideally perfect dynamic diffraction limit; however, in heavily defected materials, it would be expected to fail because there is no explicit mechanism for including the effects of kinematic scattering that would be generated in the defective layers.  The other extreme -- employing a fully kinematical calculation for partially defective crystalline structures -- would be expected to experience limitations if either the substrate or any layers in a multilayer structure would have strong dynamical diffraction behavior.  A ``semi-kinematical'' approach developed by authors such as Speriosu \cite{Speriosu2,Speriosu1} uses dynamical calculations for the substrate, while applying a purely kinematical model based on Zachariasen  \cite{Zachariasen1} for layer calculations. Clearly, this method presumes that the substrate and layer diffract solely according to the dynamic and kinematic theories, respectively. In a real material such as an industrially-relevant semiconductor epitaxial heterostructure, this presumption of crystalline perfection (or lack thereof) may not be warranted; indeed, the degree of crystalline perfection may not be known \textit{a priori} at all.
+
+A more sophisticated approach involves the analytical calculation of the defect scattering and to incorporate this into a full modeling of the total diffracted intensity. A general treatment for calculating the kinematic intensity scattered by statistically distributed defects in nearly perfect crystals has been developed by Krivoglaz \cite{Krivoglaz1}. This approach has been applied in several studies to a variety of different semiconductor systems \cite{Gartstein1,Zaumseil1,Kaganer1,Holy3}. A fully quantitative analysis via modeling of the defect scattering typically requires a full knowledge of the characteristics of the defects in the diffracting crystal; unfortunately this is typically not the case in many applications-driven uses of high resolution X-ray methods, such as in metrology and materials evaluation. 
+
+
+An alternative method used by Molodkin and several other authors \cite{Molodkin,Molodkin1,Molodkin2,Molodkin3,Molodkin2008} developed a ``generalized dynamical theory'' that is based on using perturbation theory to solve fluctuating polarizability in momentum space.  This model bypasses limitations of kinematical model of small defect sizes by including dynamical effects of defects, and redistribution of the dynamical scattering within the material.  The initial development focused on single crystal model \cite{Molodkin,Molodkin2,Molodkin3}, and the multi-layer treatment \cite{Molodkin1} used specific type of defects within the substrate, not in the layers.  Their defect model is designed for specific defects and incorporate the static Debye-Waller factors and absorption effects.
+
+
+In applications such as semiconductor manufacturing, one often encounters crystalline materials that contain a complex defect structure. In these cases, detailed modeling of scattering via defect simulation is not possible, due to the fact that the details of the defect structure will not be known. Despite this, the fact that these single crystal materials are structurally-defective will be evident by their deviation from perfect-crystal dynamic theory.  \fref{30example} illustrates a typical example of an X-ray rocking curve recorded from a thick (approximately 170 nm) epitaxial layer of highly lattice-mismatched Si$_{0.70}$Ge$_{0.30}$/Si. The figure shows rocking curves calculated from dynamical simulation; the lack of agreement is anticipated due to the high density of structural defects in a thick, fully strain-relaxed Si$_{1-x}$Ge$_{x}$/Si epitaxial system. The relaxation parameter may be extracted from the layer's peak position in relationship to the substrate peak with current dynamical theory but several other parameters such as thickness and extent of damage cannot be extracted using only conventional dynamical theory.  The fringes that are commonly observed in near-perfect samples depends on dynamical coupling that proportionally decrease in respect to the extent of damage due to defect scattering.  In addition, the defective structures exhibits broadening effects on the layer and substrate peaks.  
+
+\begin{figure}[h]
+\caption{Dynamical Model vs. relaxed sample}
+\label{30example}
+\begin{minipage}{\linewidth}
+\includegraphics[width=.9\linewidth]{SiGe30example}
+\end{minipage}
+The dynamical calculations are offset, with three different relaxation parameters for illustration of layer peak fit.  There is strong contrast between broad peak of experimental layer peak and the calculated sharp peak with dynamical fringes.
+\end{figure}
+
+Depsite many challenges in the X-ray theoretical models, it is clear that the experimental XRD/HRXRD scans are capable of detecting full range of near-perfect crystalline layers that are strained to highly mismatched and relaxed layers.  The range of extreme limits is currently dominated by either dynamical or kinematical theory, with a massive gap in the middle.  This gap is now being addressed with a novel approach that combines the extremes into a unified theory of statistical dynamical diffraction theory (SDDT).
+
+
+\chapter{Fundamentals of Statistical Dynamical Diffraction Theory}
+
+	\section{Introduction to Statistical Dynamical Diffraction Theory}
+
+In a series of papers, Kato developed the basis for the statistical dynamical diffraction theory (SDDT), which incorporates both types of scattering that Kato called incoherent (kinematical/diffuse), and coherent (dynamical) scattering \cite{KatoI,KatoII,KatoIII,KatoIV,Kato2,Kato1}. Kato modified the conventional formalism in both kinematical and dynamical theories to include effects of defect scattering by adding statistical averaging of lattice displacement, introducing two new parameters: a static Debye-Waller factor $E$, and a complex correlation length $\tau$.  
+
+Kato's work only provided a method for determining the integrated intensity in the transmission Laue diffraction geometry; this limited its applicability to technologically-important systems such as the analysis of thin films on thick substrates in a reflection (Bragg) geometry.  Bushuev \cite{Bushuev1,Bushuev2} expanded Kato's theory by using a plane-wave approximation (rather than Kato's spherical wave approach) and modifying the Tagaki-Taupin (T-T) equations \cite{Takagi1,Taupin1,Takagi2} for the coherent component of the diffracted intensity from a single layer. Punegov provided a significant expansion on Bushuev's work \cite{Punegov1,Punegov12,Punegov13,Punegov2,Punegov9} and developed a multi-layer algorithm for the SDDT \cite{Punegov15}.  
+
+Virtually all of the prior published work on SDDT has been mathematically intensive; typically, few details are provided regarding the steps that are required for a successful implementation of this approach.  This need has been addressed by a recent publication\cite{Shreeman1}, which provides explicit instructions for SDDT implementation along with some modifications to successfully simulate rocking curves of partially defective semiconductors.  
+
+
+	\section{Theoretical Basis}
+
+The concept behind the SDDT is to develop a method that can model the full range of dynamical and diffuse scattering profiles.  The method proposed by Kato was to develop the two separate components, coherent (dynamical) and incoherent (diffuse) scattering concurrently, and integrate them together.  The relationship between these two separate components are controlled by two factors, static Debye-Waller factor ($E$), and complex correlation length, $\tau$.  
+
+Following the SDDT treatment developed by Bushuev, the Takagi-Taupin numeric solution to dynamical diffracting systems can be modified to incorporate defect scattering by decreasing the coupling between X-ray wavefields (incident plus a single diffracted wavefields).  The T-T equations (using Bushuev's conventions) can be written as
+\begin{align}
+\frac{dE_o}{dz} &= i a_{oo} E_o + ia_{oh} \phi E_h\\
+\frac{dE_h}{dz} &= i(a_{hh}+\eta)E_h +i a_{ho}\phi^* E_o
+\end{align}
+where $E_o$ and $E_h$ are the incident and diffracted amplitudes, $\phi=\exp [i \vec{H} \cdot \vec{u}]$ is the lattice phase factor \cite{KatoI,Authier1} where $\vec{H}$ is reflection vector, $\vec{u}$ is the displacement from the expected lattice points, and $\eta$ is the Bushuev simplified deviation parameter, 
+\begin{align}
+\eta &= \frac{k (\theta -\theta_B) \sin 2 \theta_B}{\gamma_h}
+\end{align}
+where $k$ is the wavevector and $\gamma_h$ is the direction cosine of the diffracted beam. We also invoke the variables
+\begin{align}
+a_{oo} &= \frac{k  \chi_o}{2 \gamma_o} \quad  \text{:modulates the amplitude $E_o$ entering into the sample }\\
+a_{hh} &= \frac{k  \chi_o}{2 \gamma_h}\quad  \text{:modulates the amplitude $E_h$ exiting the sample }\\
+a_{oh} &= \frac{k C \chi_{\overline{h}}}{2 \gamma_o}\quad \text{:modulates forward diffracting amplitude $E_h$}\\
+a_{ho} &= \frac{k C \chi_h}{2 \gamma_h} \quad \text{:modulates back diffracting amplitude $E_o$}
+\end{align}
+
+Bushuev followed the general guidelines proposed by Kato \cite{Kato1,Kato2} for the implementation of the statistical theory.  The specific procedure of statistical averaging are explained in detail by Bushuev \cite{Bushuev1,Bushuev2} and are also discussed elsewhere \cite{Ming1,An1,Punegov15,Punegov12,Punegov7,Punegov2,Punegov13,Punegov1,Punegov9,Authier1}.  The statistically-modified T-T equations can then be written as:
+\begin{align}
+\frac{dE^c_o}{dz}&=i (a_{oo} - i  (a_{oh}a_{ho}(1-E^2)) \tau)E_o^c + i a_{oh} EE^c_h\label{tt1}\\
+\frac{dE^c_h}{dz}&=i (a_{hh} + \eta +i(a_{oh}a_{ho}(1-E^2)) \tau) E^c_h +i a_{ho} E E^c_o\label{tt2}
+\end{align}
+
+The complex correlation length ($\tau$) will be discussed in the following sections.  The addition of $c$ superscripts to amplitudes $E^c_o$ and $E^c_h$ indicate that they are coherent ($i.e.$ dynamic) amplitudes.  It can be seen that the coupling between the incident and diffracted beam amplitudes in these equations is mediated by the static Debye-waller factor ($E$).
+
+The general solutions to Equations (\ref{tt1}) and (\ref{tt2}) are given by
+\begin{align}
+E_o^c &= A_{o1} e^{i \epsilon_1 z} + A_{o2} e^{i \epsilon_2 z } \label{sol1}\\
+E_h^c &=  A_{h1} e^{i \epsilon_1 z} +  A_{h2} e^{i \epsilon_2 z }\label{sol2}
+\end{align}
+where the terms $A_{ij}$ are unknown coefficients that will be resolved by using boundary conditions.  The $\epsilon_j$ terms are phase functions of the amplitude wave solution.  The $z$ represents top of the given layer when $z=0$, and bottom of layer when $z=t$ where $t$ is thickness of the layer.  
+
+Continuing to follow the Bushuev treatment \cite{Bushuev1,Bushuev2}, the incoherent (non-dynamic, $i.e.$ kinematic or diffuse) intensity is described by the energy-transfer equations \cite{KatoI},
+\begin{align}
+\frac{dI^i_o}{dz} &=-\mu_o I^i_o-\sigma_{oh} I^c_{h}\\
+\frac{dI^i_h}{dz} &=-\mu_h I^i_h-\sigma_{ho} I^c_{o}
+\end{align}
+where superscripts $i,c$ represent the incoherent and coherent components, respectively; $I_o^c$ is coherent intensity in the incident direction, while $I_h^c$ is the coherent intensity in diffracted direction, $I_o^i$ is the incoherent intensity in incident direction, and $I_h^i$ is the incoherent intensity in diffracted direction.  The term $\mu_i$ is the usual photoelectric absorption divided by the direction cosine ($\gamma_i$).  Note that the treatment of the incoherent kinematic scattering involves contributions to the intensity, which is in contrast with the development of the fundamental equations for dynamic scattering which is expressed in terms of amplitudes.
+
+The kinematic cross section term $\sigma_{ij}=2 |a_{ij}|^2(1-E^2)\tau_r$ represents the probability for diffuse scattering, with the static Debye-Waller factor providing an integral component of the diffuse scattering probability.  The incoherent intensity will be zero if the average displacement of the lattice equals zero ($i.e.$, perfect crystal or full dynamical scattering).  The energy-transfer equations and its adaptations for SDDT application are discussed in depth by several papers by Kato during the initial development of SDDT theory \cite{KatoI,KatoII,KatoIII,KatoIV,Kato2,Kato1}.
+
+The total intensity can then be obtained from the two components \cite{Bushuev1}
+\begin{align}
+I_t(\theta)&=I_h^c + I_h^i
+\end{align}
+where $I_h^c = |E_h^c|^2$.
+
+	\section{Implementation Method}
+
+As mentioned above, the present implementation of the SDDT is based primarily on the approach given by Bushuev \cite{Bushuev1}, modified with the multilayer model developed by Punegov \cite{Punegov15,Punegov2}.  The coherent (dynamical) reflection calculations begins at substrate.  The layer contributions are calculated iteratively to the total dynamical diffraction.  The coherent amplitudes calculated for each layer is also used to calculate the incoherent (diffuse) scattering.  The transmission coefficients of the incoherent scattering begins at top-most layer, and then recursively calculated downward to the substrate. All calculations for coherent and incoherent scattering for each layer are done first, then the transmission coefficients are calculated separately due to the  different method of recursion (top-down and bottom-up).  Once these calculations are completed, the total intensity can be obtained.
+
+		\subsection{Strain}
+
+We assume that the diffracting crystal may be strained as function of depth.  Each layer has its own lattice parameter,
+\begin{align}
+a_s &= s a_o\\
+s &=1 + \frac{\Delta d}{d}
+\end{align}
+where $a_s$ represents strained lattice parameter expressed in terms of the unstrained lattice parameter, $a_o$.  The term $s$ is the magnitude of the strain, while the term $\Delta d/d$ being negative or positive, depending on whether the strain is compressive or tensile.  The definition used here is different from that used by Bushuev \cite{Bushuev1} which only alters the location of the Bragg peak for the given layer using
+\begin{align}
+\Delta \theta_o &= -(\Delta d/d) \tan \theta_B
+\end{align}
+which then alters Bushuev's simplified deviation parameter
+\begin{align}
+\eta^\prime &= k (\Delta \theta - \Delta \theta_o) \sin 2\theta_B/\gamma_h
+\end{align}
+However, this method will not be used in this study.
+
+		\subsection{Substrate}
+
+One of the first steps is to calculate the diffracted amplitude from the substrate using some modifications to the expression for the amplitude $E^c_h$ given by Bushuev \cite{Bushuev1} and Punegov \cite{Punegov15}. Here, the amplitude reflection coefficient from the substrate is given by:
+\begin{align}
+R_o &= \frac{\psi_e + \beta}{2a_{oh}}\\
+\psi_e &= a_{hh} -a_{oo} + \eta \\
+\beta&=\text{Sign}[\text{Im}[\epsilon_i]](\psi_e^2 + 4 a_{oh} a_{ho})^{1/2}\label{sign}\\
+\epsilon_i&= \frac{1}{2} (2 a_{oo} + \psi_e + \beta_i)\\
+\beta_i&=(\psi_e^2 + 4 a_{oh} a_{ho})^{1/2}
+\end{align}
+The term $\beta$ is modified to incorporate the sign function of $\epsilon_i$ to allow for the automatic correction of sign when the angle difference $(\theta-\theta_B)$ changes sign. For the substrate, the terms $\psi_e$ and $\beta$ are analogous to the traditional dynamical deviation parameter, $\eta_d$.  The differences are due to the Bushuev's treatment, in contrast with the traditional dynamical treatment.  
+
+In addition, there is no diffuse scattering contribution from the substrate.  It is assumed that substrate's scattering will be fully dynamical.
+
+		\subsection{First Layer}
+
+The substrate calculations did not include the statistical parameters $\tau$ and $E$ since at this point we have assumed that the substrate is crystallographically perfect.  The layer calculations will incorporate the statistical parameters, along with redefined functions of $\beta$ and $\psi_e$.
+
+\subsubsection{Coherent Diffraction of the First Layer}
+
+Starting with the coherent diffraction component, the amplitude of the layer reflection is given by:
+\begin{align}
+R_l^c =\frac{P_1 -P_2 Q}{1-Q}
+\end{align}
+where
+\begin{align}
+Q &= \frac{P_1 - R_o}{P_2-R_o} e^{i (\epsilon_1 - \epsilon_2) t}\\
+P_1 &= \frac{\psi_e + \beta}{2a_{oh} E \sqrt{|b|}}\\
+P_2 &= \frac{\psi_e - \beta}{2a_{oh} E \sqrt{|b|}}\\
+\beta&=(\psi_e^2 + 4 a_{oh} a_{ho}E^2)^{1/2}\\
+\psi_e &=  a_{hh} -a_{oo} + \eta + i (a_{oh} a_{ho} (1 - E ^2)) \tau\\
+\epsilon_1&= \frac{1}{2} (2 a_{oo} + \psi_e + \beta)\\
+\epsilon_2&= \frac{1}{2} (2 a_{oo} + \psi_e - \beta)
+\end{align}
+where $R_l^c$ is the calculated amplitude reflection coefficient of the given layer; $P_{1}$ and $P_2$ terms describes relationship between incident and diffracted beam $A$ terms where $A_{h1} = P_1 A_{o1}$ and $A_{h2} = P_2 A_{o2}$  ; $R_o$ is the substrate's calculated amplitude reflection coefficient; $\beta$ is redefined from substrate to exclude the automatic sign selection performed in Equation \ref{sign}; and $\epsilon_i$ terms comes from the general solution given in Equations (\ref{sol1}) and (\ref{sol2}). The term $\psi_e$ has additional terms due to the incoherent scattering of the layer.
+
+The effect of defects in the structural model arises through the two parameters, $\tau$ and $E$ that are incorporated into the layers calculations. The parameter $E$  models the impact of the defect by their disruption of wavefields in the diffracting crystal. In contrast, the parameter $\tau$ determines an ``averaged'' structure of the defects. A more discussion on these statistical parameters will be covered later.
+
+
+  
+\subsubsection{Incoherent Diffraction of the First Layer}
+
+The intensity of the diffuse scattering generated by the layer is calculated separately from the coherent diffraction.  However, it is not completely independent since the calculations of the coherent amplitude in incident beam direction are incorporated into the diffuse scattering equation. In diffracted beam direction, the intensity of the incoherent scattering becomes
+\begin{align}
+I^i_h &= \sigma_{ho} \left(  |A_{o1}|^2 l_{11} + |A_{o2}|^2 l_{22} + 2 \text{Re}[A_{o1} A_{o2}^* l_{12}]\right)\\
+\sigma_{ho}&=2 |a_{ho}|^2(1-E^2) \text{Re}[\tau]\\
+A_{o1} &= \frac{1}{1-Q}\\
+A_{o2} &= \frac{-Q}{1-Q}\\
+l_{11} &= \frac{1-e^{(\mu_h -\mu_{11}) t }}{\mu_{11} - \mu_h}\\
+l_{22} &= \frac{1-e^{(\mu_h -\mu_{22}) t }}{\mu_{22} - \mu_h}\\
+l_{12} &= \frac{1-e^{(\mu_h -\mu_{12}) t }}{\mu_{12} - \mu_h}\\
+\mu_{11} &= -i(\epsilon_1 - \epsilon_1^*)\\
+\mu_{22} &= -i(\epsilon_2 - \epsilon_2^*)\\
+\mu_{12} &= -i(\epsilon_1 - \epsilon_2^*)
+\end{align}
+$l_{11},l_{22},l_{12}$ are the effective thicknesses of the diffuse scattering generation based on which $A_{oj}$ terms are used.  Basically, it is a physical thickness modulated by absorption and scattering factors.  If the given layer is thin enough (much less than the extinction length), then the effective thickness is approximately equal to actual thickness ($l_{ij} \approx t$).   The term $\mu_{ij}$ represents the phase difference between $\epsilon_i$ and $\epsilon_j^*$, and the  $\mu_h$ is the photoelectric absorption with cosine direction ($\mu/\gamma_h$).
+ 
+\subsubsection{Total Intensity of the First Layer}
+
+For the single layer model, determining the total diffracted intensity is straightforward since only incoherent scattering occurs in one layer.  The total intensity of single-layer material in the symmetrical Bragg diffraction
+\begin{align}
+I^t = I^i_h + R^c_l R_l^{c*}
+\end{align}
+
+With these solutions in place, the simulations of the SDDT became possible.  One of the early publications on SDDT (Bushuev \cite{Bushuev1}) was successfully duplicated (See \fref{Bush1}).  For this type of replication, it must be noted that this particular graph is not logarithmic.  Typically, for the most part of the dissertation, the intensity is logarithmic.   For exceptional cases like this, it will be specifically mentioned that it is non-logarithmic.  
+\begin{figure}[h]
+\centering
+\caption{Replication of Bushuev's work \cite{Bushuev1}}
+\label{Bush1}
+\includegraphics[width=0.75\linewidth]{Bush1}
+\end{figure}
+
+
+
+However for the multi-layer model, it will be necessary to incorporate each layer contribution to the incoherent scattering. In addition, absorption of each layer must be considered.  As result, transmission coefficients will be incorporated into the multilayer model. 
+
+		\subsection{Multi-layer Model}
+
+For the coherent diffraction of the multi-layer, the only modification from the first layer model is the definition of $R_o$ to $R^c_{l-1}$ where $l$ represents the $n^{th}$ layer from bottom up starting zero at substrate.  All structural variables are calculated for the given layer, except for the $R^c_{l-1}$ which is reflection from layer below or the substrate.  As result, only the variable $Q$ is modified,
+\begin{align}
+Q = \frac{P_1 - R^c_{l-1}}{P_2 - R^c_{l-1}}e^{i (\epsilon_1 - \epsilon_2) t}
+\end{align}
+which also effects the amplitude of the coherent scattering $A_{o1}, A_{o2}$ used in the incoherent scattering calculations.  
+
+The major addition of the multi-layer model is the amplitude transmission coefficient.  The single-layer model neglected the amplitude transmission coefficient for the incoherent scattering because the substrate does not have any incoherent scattering.  When the multi-layer model is developed, it is necessary to incorporate the scattering contribution and absorption from each layer.    
+
+The transmission beam is calculated from topmost layer downward to the substrate. Using the results of \cite{Punegov15}, we have
+\begin{align}
+l &= 1,\cdots L \qquad \text{($L$ is the topmost layer)}\\
+T^{(l-1)} &= T^{(l)} \left\{   \frac{e^{i \epsilon^{(l)}_1 t(l)}-Q^{(l)} e^{i \epsilon_2^{(l)} t(l)}}{1-Q^{(l)}}  \right\}\\
+T^{(L)} &= 1
+\end{align}
+In Punegov's work \cite{Punegov15}, the $A_{ij}$ terms have the transmission coefficients incorporated into them.  However, for this study,they are not incorporated since the coherent scattering equation does not need the transmission coefficients due to the terms canceling each other in recursive equation. The topmost layer with the $T^{(L)}$ term has a value of unity since the incident beam profile on the surface of the sample is assumed to be unity.  For more simple programming logistics, this approach is used with the same results.  The incoherent scattering equations will have the transmission coefficients included in the total intensity calculation.  The total intensity for the multi-layers is calculated as:
+\begin{align}
+I^t_h = R_L^c R_L^{c*} + \sum_{l=1}^L{|T^{(l)}|^2 I^{i(l)}_h}
+\end{align}
+
+		\subsection{Complex Correlation Length}
+
+The complex correlation length parameter presents a number of difficulties regarding the accurately modeling of various types of defects. For instance, a defect model of consisting of randomly distributed amorphous spherical clusters with radius $r$ in which there are no elastic fields outside of the cluster has been presented in prior treatments \cite{Bushuev1}. In this case, the real and imaginary components of $\tau$ can be given by \cite{Bushuev1}
+\begin{align}
+\tau &= \tau_r + i \tau_i\\
+\tau_r &= \frac{6 r}{x^4} (\frac{1}{2} x^2 +1-\cos[x] - x \sin [x])\\
+\tau_i &= \frac{-r}{x^4}(x^3 (1+\cos [x]) +6(x \cos [x] - \sin[x]))\\
+x &= |2 \psi r \gamma_o|
+\end{align}
+
+
+The spherical cluster model allows the correlation function to be expressed in closed mathematical form, but it does not represent a realistic model for the typical defects present in semiconductor heterostructures.  The mosaic block model, based on Bushuev \cite{Bushuev2} would be a more useful model.  In this case, only the real part of $\tau$ is used:
+\begin{align}
+\tau_r &= \frac{t}{2 \xi_o} \overline{s}(\Delta \theta) \label{mosaic1} \\
+\overline{s}(\Delta \theta) &= \frac{1}{\overline{\Delta}} \exp \left[ -\pi (\Delta \theta /\overline{\Delta})^2 \right] \label{mosaic2}\\
+\overline{\Delta} &= \sqrt{\Delta_M^2 + \Delta_o^2}\label{mosaic3}\\
+\xi_o &= 2 \sin \theta_B t /\lambda\label{mosaic4}\\
+\Delta_o &= 1/\xi_o \label{mosaic5}
+\end{align}
+where $\Delta_o$ is width of the reflection of the individual blocks, $\Delta_M$ is width of the angular distribution of the mosaic blocks (assumed to be Gaussian), and $\overline{s}$ represents the convolution of the individual mosaic block diffraction and the angular distribution of the blocks. 
+
+For more better illustration, please refer to \fref{Mosaic1}.  The function $W(\alpha)$  represents the distrubtion of the mosaic blocks, and $\Delta_M$ is the width of that function.  The $\alpha$ represents the angular deviation of blocks from the crystalline surface or the expected angular orientation.  
+\begin{figure}[h]
+\centering
+\caption{Illustration of Mosaic model}
+\label{Mosaic1}
+\includegraphics[width=0.75\linewidth]{Moasic1.jpg}
+\end{figure}
+
+The effect of the correlation length parameter ($\Delta_M$) is illustrated  (\fref{Mosaic2}) here based on the recent Bushuev's graph (non-logarithmic).  As the $\Delta_M$ increases, the width of the incoherent scattering profile increases.
+\begin{figure}[h]
+\centering
+\caption{Examples of $\Delta_M$ effects}
+\label{Mosaic2}
+\includegraphics[width=\linewidth]{Mosaic2.jpg}
+\end{figure}
+
+Additional illustrations of static Debye-Waller factor is included here (\fref{SDW}) for a short discussion on the relationship between complex correlation length and the static Debye-Waller factor.  As it is clearly illustrated, when the static Debye-Waller factor ($E$) is equal to one, the profile is fully dynamical.  Once it approaches zero, the kinematical scattering takes over, and the dynamical profile gradually disappears.  On side note, these graphs are still based on Bushuev's work, hence non-logarithmic.  
+
+\begin{figure}[h]
+\centering
+\caption{Examples of static Debye-Waller factor effects}
+\label{SDW}
+\includegraphics[width=\linewidth]{SDW}
+\end{figure}
+
+
+
+In the SDDT, it is necessary to know the complex correlation length that is associated with a specific type of defect. Unfortunately, for any particular defect type, the functional form of the complex correlation length is typically mathematically intensive. Due to the statistical nature of a typical high resolution X-ray experiment (for example, averaging counts versus noise, averaging lattice parameter within the irradiated area, or variations in local crystal orientation), it does not appear to be practical to derive a rigorous mathematical model that fully incorporates all of the details of the complex correlation length. This will be particularly true in industrial applications, where a comprehensive description of the defect structure in even important materials is likely to be inaccessible.
+
+From an operational standpoint, however, a detailed knowledge of the exact nature of the complex correlation length may not be necessary. To illustrate this point, two specific defect models of complex correlation lengths (the spherical cluster and the mosaic block) that were derived by Bushuev are shown in Figure \ref{taucompare}. In this figure, two values of a particular parameter ($\Delta_M$ for mosaic model, versus the radius in spherical model) were used to calculate the real part of the correlation length, with the spread (FWHM) of the $\tau_r$ being controlled by either angular deviations of mosaic blocks or radius of spherical clusters.  The Figure shows that in all four cases, the angular dependence of $\tau_r$ can be reasonably modeled with a generic Gaussian function.  There are slight differences between the two models -- specifically, the spherical model has some small oscillations while the mosaic profile is smooth -- but they are surprisingly small. 
+%
+\begin{figure}
+	\includegraphics[width=\linewidth]{Taucompare2}
+	\caption{Comparisons between two models of complex correlation length}
+	\label{taucompare}
+		\end{figure}
+%
+It appears that a simplified Gaussian function can easily provide a convenient and practical approximation for the correlation length within the framework of the SDDT. It would not be difficult to generate a reasonable fitting Gaussian profiles for any given type of materials in the simulations.  The most practical solution would be to use a generalized Gaussian function for any applications instead of specialized defect models.  If it is found necessary to obtain specific defect information from the complex correlation length, then the fitted Gaussian function could be extracted easily and used for the exclusive defect fitting model.  This approach will simplify and reduce the computation needed to fit the experimental rocking curve.  For this current study, it is sufficient to determine the extent of damage to the crystalline structure by static Debye-Waller factor, along with a general idea of the damage structures within the given material.  Since the mosaic block model is based on a Gaussian function, it is used in this study.
+
+	\section{Substrate Peak Broadening Effect}
+
+Figure \ref{fig:GeSi1} shows the first attempt at modeling the symmetrical Bragg reflection (004) from a relaxed Si$_{0.7}$Ge$_{0.3}$ layer on a Si(001) substrate. The model used is given in Table \ref{model1}.  This initial attempt demonstrates that the current SDDT theory fails when the substrate peak intensity is broadened by the defective layers.  In all calculations provided in earlier sections, the substrate peak profile is assumed to be ``exclusively'' dynamical.  The transmission coefficients are canceled out in  the recursion equations due to ratio between the coherent amplitudes and thus do not incorporate the broadening effects of the defects.  It can be observed from the Figure \ref{fig:GeSi1}, that the layer profile is reasonably fitted; however, the experimental substrate peak is considerably broader than the calculated peak.  In attempt to compensate for the broad substrate peak, an additional layer of thick Si distorted layer was added to the simulation model.  The reasonable fitting of the experimental substrate peak required that the distorted Si layer to be approximately 0.9 micrometer thick.  The proposed model with excessively thick distorted Si layer is unreasonable.  In consideration of the broadening effect of the substrate peak, the diffuse effect of the distorted layers must be incorporated.
+%
+\begin{table}[h]
+\centering
+\caption{The model used for Si$_{0.7}$Ge$_{0.3}$ fitting in \fref{fig:GeSi1}}
+\label{model1}
+\begin{tabular}{c|cccc}
+\hline
+Layer & Thickness(nm) & $\Delta d/d$ & E & $\Delta_M$\\
+\hline
+Si$_{0.7}$Ge$_{0.3}$ & 110 & $3.1 \cdot 10^{-3}$ & 0.17 & $4.7 $\\
+Si$_{0.7}$Ge$_{0.3}$ & 59.3& $3.5 \cdot 10^{-3}$ & 0.015 & $13 $\\
+Si Substrate & -- & -- & -- & --\\
+\hline
+\end{tabular}
+\end{table}
+%
+\begin{figure}
+	\includegraphics*[width=\linewidth]{Nonbroad}
+	\caption{004 rocking curve from 170 nm Si$_{0.70}$Ge$_{0.30}$/Si and the fit from the the initial SDDT model}
+	\label{fig:GeSi1}
+	\end{figure}
+%
+The model based on an assumed kinematic diffraction process may be used in this case, but it cannot model the substrate broadening effect nor model the range between near-perfect to near-kinematical layer.  The particular experimental rocking curve is used to illustrate the versatility of SDDT which can be used to fit full range between fully coherent (dynamical) to incoherent (diffuse/kinematical) profiles.  In addition, the presence of highly defective material also demonstrates a strong broadening effect on the substrate peak that is not commonly observed in slightly perturbed materials. Below a method for incorporating this effect is described.
+
+		\subsection{Modification of Amplitude Reflection Coefficient Definition}
+
+The defects in the upper layers will have broadening effect on the diffraction profile of the lower layers and will have an especially significant impact on the substrate peak.  This effect arises because the incoherent scattering equations only calculate the kinematical diffraction due to defects within a given layer; hence it becomes necessary to redefine one of the main definitions, namely the amplitude reflection coefficient.  In the works of Bushuev and Punegov the basic definition $E_h^c = R_{m-1} E_o^c$ is used, where the reflection coefficient is from the layer below.  We can revise this term by instead incorporating the broadening effect ($B_e$) by defining $E_h^c = (B_e R_{m-1}) E_o^c$.  Using this new definition, the term $Q$ contains the new parameter,
+\begin{align}
+Q &= \frac{P_1 - B_e R_o}{P_2- B_e R_o} e^{i (\epsilon_1 - \epsilon_2) t}
+\end{align}
+The proof of the $Q$ redefinition due to inclusion of broadening effect parameter $B_e$ is presented in Appendix \ref{ARCM}.  
+%
+\begin{figure}
+	\includegraphics*[width=\linewidth]{Broadened}
+	\caption{004 rocking curve from 170 nm Si$_{0.70}$Ge$_{0.30}$/Si and the fit from the modified SDDT model; note the excellent fit to both the broadened substrate and the relaxed layer peaks}
+	\label{fig:GeSi2}
+	\end{figure}
+%
+Figure \ref{fig:GeSi2} illustrates the proof-of-concept result that, by using the modifications for broadening effect, we are now able to fully model the X-ray diffraction behavior of structurally defective systems.  Instead of adding almost micron thick distorted Si layer in between the substrate and SiGe layer, the model is now more reasonable with two SiGe layer model as shown in Table \ref{model1}.  The 2-layer model assumes that the interfacial layer is much more distorted and strained than the upper layer.   Note that in order to achieve this result, it was necessary to incorporate the contributions of diffuse effect into the calculation of $B_e$ for the amplitude reflection coefficient, especially at the near-kinematical limits where the broadening effects become significant. The initial incorporation of the broadening effect was based on weighted parameters to condense the effect into a single modulation of substrate peak diffraction.  The modification was successful, and the substrate peak was fitted reasonably well with same parameters.  The in-depth treatment of broadening effect will be discussed in next chapter.
+
+
+	\section{Discussion}
+
+The versatile ability of modeling a full range between coherent to incoherent diffraction would provide to be extremely useful for immediate applications in the semiconductor industry.  The strained Si$_{0.7}$Ge$_{0.3}$ layer on Si(001) substrate fitting procedure was used to demonstrate that model based on dynamical theory could be used to accurately model an experimental curve that is at near-kinematical limit.  The thicknesses of each given layers obtained by the fit is verified to be accurate.  For illustration purposes, several calculated curves with similar parameters from Si$_{0.7}$Ge$_{0.3}$ (but only with one layer for simplicity) are used to show a full range of coherent and incoherent diffraction in Figure \ref{example}.  Each curve are offset by a factor of 10 for clear illustration.  The static Debye-Waller factor determines the quality of crystal (essentially the structural damage) that range from crystal-perfect ($E=1$) to the kinematical limit ($E=0$).  It can be noted that the dynamical fringes appears as the perfection of the crystal structure increases ($E \rightarrow 1$).
+%
+\begin{figure}
+	\includegraphics*[width=\linewidth]{ExamplesDW}
+	\caption{An illustrated example of full range from coherent to incoherent diffraction of the model with all other parameters fixed}
+	\label{example}
+	\end{figure}
+%
+The current modified SDDT thus provides a potentially simplified method for quickly calculating a full range of coherent-incoherent diffraction profiles with a single model.  In addition, the simplified approach of defect modeling, based on the Gaussian approach, allows for immediate assessment of a given sample.  The details of the defects can be easily extracted from the complex correlation function if necessary after the rocking curve has been fitted.  This approach also reduces the mathematical complexity of the model, resulting in faster computation times.  The lamellar model, which is based on \cite{Punegov15}, was implemented successfully using the Bushuev's model \cite{Bushuev1,Bushuev2} (also with modified strain model), allowing for each layer to have its own parameters for thickness, strain, static Debye-Waller factor, and complex correlation length parameters.  In addition, the broadening effect of substrate peak was implemented  to account for diffuse effects of defects on the substrate peak.  The broadening effect implementation allows for more accurate fitting of the experimental rocking curves, and accounts for the difference between conventional SDDT and the experimental data.  
+
+
+\chapter{Modified Statistical Dynamical Diffraction Theory}
+
+In this chapter, one of the new parameters that has been proposed in this research, the broadening effect, is explored .  The initial development proposed in previous publication \cite{Shreeman1} was based on weighted approach of using each epi-layers of the material's parameters, and weight them all based on thickness of each layer weighted against the total thickness of all layers.  Unfortunately, that provided to be impractical since the variables used in the calculations became interchangeable among the layers, making the proper analysis nearly impossible.  As result, a new approach, a layered broadening effect, is proposed and compared against the weighted broadening effect.  Before the comparisons can be made, a section on weighted broadening effect is necessary for a more clear illustrations of relationship between layer's defects and its effects on the substrate peak broadening.
+
+
+
+\section{Weighted Broadening Effect}
+
+
+The parameter $B_e$ is represented by weighted static Debye-Waller ($E_w$), and weighted complex correlation length ($\tau_w$),
+\begin{align}
+B_e =1+A_s (1-E_w)(\tau_w) \label{oldB}
+\end{align}
+where the $A_s$ is a normalization parameter in respect to the substrate peak. The broadening effect parameter is controlled by the complex correlation length and the static Debye Waller factor of overall structure to model the full range from full dynamical (almost no broadening effect) to near-kinematical limit (full broadening effect).  The weighting is based on the overall thickness ($t_T$) of each given layer thickness ($t_n$),
+\begin{align}
+t_T = \sum_n{t_n}\\
+P_n =\frac{t_n}{t_T}
+\end{align}
+
+Each layer will have its own values for the Debye Waller factor ($E$) and the complex correlation length parameter ($\Delta_M$) which is multiplied by weighted percentage $(P_n)$ then added together to create a weighted parameters for the broadening effect.
+
+
+
+ The range of these given samples allows for additional verifications of the statistical theory's capabilities of handling various ranges of the defect development due to different processing elements.  The ion-implanted SiGe samples that has range of annealing temperatures and two different ion species (Germanium for pre-implantation, and Boron for implantation) provides to be excellent starting point for initial analysis of the mSDDT capabilities as it has wide range of strained to relaxed profiles of the material.  
+
+
+\subsection{SiGe Samples}
+
+Layers of Si$_{70}$Ge$_{30}$ of approximately 50 nm were grown on (001) Si using UHVCVD (Ultra-High Vacuum Chemical Vapor Deposition), and implanted with either just boron (500eV, $1\cdot 10^{15}$ cm$^2$) only or also pre-implanted with germanium (20keV, $5\cdot 10^{14}$ cm$^2$).  Along with various annealing conditions, there are two sets of four samples generated.  The following Table \ref{SampleTable} illustrates various processes involved in these sets.
+
+\begin{table*}[ht]
+  \caption{Processing of the SiGe sample sets}
+  \begin{tabular}[htbp]{@{}l|llll@{}}
+    \hline
+   Implantation & As Implanted & Annealed at $950^{\circ}\mathrm{C}$ & Annealed at $1100^{\circ}\mathrm{C}$ & Annealed at $1175^{\circ}\mathrm{C}$ \\
+    \hline
+   Boron Only & Sample B:1 & Sample B:2  & Sample B:3 & Sample B:4  \\
+   B and Ge & Sample BGe:1 & Sample BGe:2  & Sample BGe:3 & Sample BGe:4  \\
+    \hline
+  \end{tabular}
+  \label{SampleTable}
+\end{table*}
+
+The calculation of ion-implantation depth was performed by SRIM (The Stopping and Range of Ions in Matter) \cite{SRIM}.  The expected depths of the ion profile is estimated at 12.5nm deep for Boron species and 47.5nm for Ge species (\fref{SRIM}).
+\begin{figure}
+\caption{SRIM simulations of ion-implantation:  Boron and Germanium respectively.}
+\label{SRIM}
+\begin{minipage}{0.5\linewidth}\includegraphics[width=\linewidth]{B-Implant.jpg}\end{minipage}\begin{minipage}{0.5\linewidth}
+\includegraphics[width=\linewidth]{Ge-Implant}\end{minipage}\end{figure}       
+
+
+The analyses will be limited to the practical demonstrations of the statistical diffraction theory (SDDT).  For illustration purposes, the dynamical simulations are also included for comparisons with same parameters used in SDDT model.
+
+%
+\begin{figure}[ht]
+\caption{Experimental Data of B:1 with the dynamical fit}
+\label{B1:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{AsIsBo}
+\end{minipage}
+\vfill
+\begin{minipage}{\linewidth}
+\vspace{10pt}
+\centering
+Table for \fref{B1:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 10 & 1 & 0 & $6.2\cdot 10^{-3}$  \\
+  SiGe & 42 & 1 & 0 & $6.3\cdot 10^{-3}$  \\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+ \end{minipage}
+\end{figure}
+%
+\subsubsection{Sample B:1}
+
+The sample B:1 is not significantly damaged by the boron implantation, and was reasonably fitted by a purely dynamical model.  As result, only dynamical profile is provided in the Figure \ref{B1:fig}.  
+
+
+\subsubsection{Sample B:2}
+%
+\begin{figure}[ht]%
+\caption{Experimental data of B:2 with fitted plots of statistical and dynamical model.}
+\label{B2:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{SoakBo}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\vspace{10pt}
+\centering
+Table for \fref{B2:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 51 & 0.65 & 0 & $4.7 $  \\
+  SiGe & 3 & 0.7 & 0 & $4.5 $  \\
+  Si   & 10 & 0.6 & 0.02 & $-3$ \\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+  \end{minipage}
+\end{figure}
+%
+The second sample, B:2 was reasonably fitted with the model based on the statistical theory (SDDT).  It shows that the diffusion of boron was taking place, and causing defects within the structure.  When the dynamical and statistical fits are compared in Figure \ref{B2:fig}, it becomes apparent that there are some substrate peak broadening effects, and the typical first order fringes of dynamical interactions between of SiGe layer and substrate are diffused into a single broad peak.  According to the simulated model (Table \ref{B2:fig}), the overall dynamical (coherent) intensity of the structure is within $60-70\%$ range for the SiGe layer. 
+
+
+\subsubsection{Sample B:3}
+
+With the higher temperature, layer peak (Figure \ref{B3:fig}) has slightly more broadened peak than the B:2 sample, indicating more defective structure.  The simulated model proposed in Table \ref{B3:fig} indicates that the topmost layer only has $50\%$ dynamical diffraction, and with additional relaxation of the layers.  The comparsion between statistical and dynamical profile is similar to B:2 sample.
+\begin{figure}[ht]%
+\caption{Experimental data of sample B:3 with statistical and dynamical fits.}
+\label{B3:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{SpikeBo}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\vspace{10pt}
+	\centering
+Table for \fref{B3:fig}\\
+ \begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 45 & 0.5 & 0 & $3.4 $  \\
+  SiGe & 10 & 0.9 & 0.01 & $3.5 $  \\
+    Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+
+
+\subsubsection{Sample B:4}
+
+In the Figure \ref{B4:fig}, the layer peak are considerably more relaxed and more defective ($E =0.20-0.40$) than previous samples.  Due to the high temperature annealing, the boron has diffused into the substrate.  According to the proposed model in Table \ref{B4:fig}, the boron diffused approximately 265 nanometers deep into the substrate.  As result, the substrate broadening effect has sigificantly increased.  The dynamical profile clearly illustrates the difference in the conventional dynamical substrate peak, and the broadened peak.
+
+Addtionally, there were some issues of broadening effect algorithm that appeared due to an assumption that it was sufficient to calculate all broadening effects into a single layer modification.  This issue will be discussed in depth in the next section.
+
+
+\begin{figure}[ht]
+\caption{Experimental data of sample B:4 with statistical and dynamical fits.}
+\label{B4:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{DSA-Bo}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\vspace{10pt}
+\centering
+Table for \fref{B4:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 5 & 0.2 & 0.01 & $1 $  \\
+  SiGe & 50 & 0.4 & 0.01 & $1.37 $  \\
+  Si   & 65 & 0.4 & 0.01 & $-0.5$ \\
+  Si 	 & 50 & 0.5 & 0.01 & $-0.4$\\
+  Si & 100  & 0.9 & 0.01 & $-0.85$\\
+  Si & 50 & 0.2 & 0.01 & -0.64\\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Sample BGe:1}
+
+Figure \ref{BGe1:fig} shows that the SiGe layer are more strained compared to B:1 sample due to the Ge pre-implantation.  The model (Table \ref{BGe1:fig}) suggests that the SiGe layers are diffracting at the kinematical limit.
+
+\begin{figure}[ht]%
+\caption{Experimental data of sample BGe:1 with statistical and dynamical fits.}
+\label{BGe1:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{AsIBGe}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{BGe1:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 6 & 0.1 & 0 & $7.7 $  \\
+  SiGe & 35 & 0.1 & 0 & $7.5 $  \\
+  Si & 10 & 0.5 & 0.05 & 3\\
+    Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Sample BGe:2}
+
+With the annealing, the crystalline structure of the topmost layer has improved slightly ($E=0.4$). Figure \ref{BGe2:fig} shows significant boron substitution by compressed strain compared to the sample BGe:1 according to the model in Table \ref{BGe2:fig}.  The overall structure of SiGe layers has improved slightly ($E=0.2-0.4$ from $ 0.1$).
+
+\begin{figure}[ht]%
+\caption{Experimental data of sample BGe:2 with statistical and dynamical fits.}
+\label{BGe2:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{SoakBGe}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{BGe2:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 30 & 0.4 & 0 & $-0.4 $  \\
+  SiGe & 20 & 0.2 & 0.6 & $1.4 $  \\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Sample BGe:3}
+
+In Figure \ref{BGe3:fig}, the overall crystalline structure of SiGe layer has improved ($E=0.9-0.4$), and increasingly compressively strained (more than BGe:2 sample) due to additional boron subsititions.  It shows that near top, the SiGe is starting to become more dynamical ($E=0.9$) at 10nm thick.  However, the underlying SiGe structure continue to be highly defective (40\% of dynamical diffraction).  
+
+\begin{figure}[ht]%
+\caption{Experimental data of sample BGe:3 with statistical and dynamical fits.}
+\label{BGe3:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{SpikeBGe}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{BGe3:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 10 & 0.9 & 0.04 & $-0.9$  \\
+  SiGe & 40 & 0.4 & 0.03 & $-1 $  \\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Sample BGe:4}
+
+The substrate peak in Figure \ref{BGe4:fig} is comparable with the Figure \ref{B4:fig}.  As with the B:4, the boron diffusion created extensive damage to the substrate (295 nm).  The issues of broadening effect on substrate also reappeared in this sample and will be discussed in next section.
+
+\begin{figure}[ht]%
+\caption{Experimental data of sample BGe:4 with statistical and dynamical fits.}
+\label{BGe4:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{DSA-BGe}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{BGe4:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe 	& 25 & 1   & 0    & $3.96 $  \\
+  SiGe 	& 20 & 0.3 & 0.01 & $-1 	$  \\
+  Si   	& 70 & 0.4 & 0.01 & $-1		$ \\
+  Si 		& 45 & 0.5 & 0.01 & $-1		$\\
+  Si 		& 90 & 0.9 & 0.01 & $-1		$\\
+  Si 		& 90 & 0.2 & 0.01 & $-1		$\\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsection{Discussion}
+As mentioned above, this section is designed to showcase the SDDT.  As result, the experimental data analyses are limited to superficial and simplified simulated models.  
+
+Even with these limitations, it becomes clear that the SDDT is a very useful tool, allowing the strain, degrees of defect (due to percentage of dynamical scattering by static Debye-Waller factor $E$), and extent of the defects (based on correlation length function $\tau$) to be approximately fitted in a lamellar fashion to extract the overall structure of the sample.
+
+As proposed in the published article \cite{Shreeman1}, the focus is on generalized parameters of static Debye-Waller factor as in degrees of dynamical scattering, and generic Gaussian distribution for the correlation length function allows for non-specific defect structures to be fitted in the test models.  The mosaic model based on Bushuev \cite{Bushuev2} was used as a ``generic'' Gaussian model since it had Gaussian function as part of the mosaic distribution. 
+
+The broadening effect proposed was incorporated as a single layer modulation with weighted parameters of correlation length and static Debye-Waller factors.  This approach nearly failed with the sample B:4 and sample BGe:4 due to extensive boron diffusion into the substrate.  The broadening effect approximation could not adequately account for the overall structure with the single layer modulation due to several layers of defective Si that was also subject to broadening effects.  It proved to be very difficult to generate a {\itshape{realistic}} defect structure.  As result, it can be noticed that majority of the models has unusual and uniformly low angular devitation  ($\Delta_m =0- 0.01$).
+
+As part of the dissertation, the broadening effect will be incorporated as a layer-by-layer approach, with each layer's unique parameters incorporated into the broadening effect of the substrate peak.  This new approach will be discussed in the next section with the results.
+
+\section{Layered Broadening Effect}
+
+The weighting procedure ignores the sequence of the broadening effect.   The broadening effect depends on the location and placement of the layers within a given structure.  The weighted broadening effect approximations does not accurately reflect each layer's effect on the reflected amplitude as it transverse through the specific layer.  The weighing distorts the effect by dividing the parameters by percentage based on the thickness of given layer against overall structure (not counting the substrate), then adding them all together for a single modulation.  As result, the parameters within the broadening effect becomes ``interchangeable'' among the layers.  The placement of the modulation is usually placed within the substrate and first layer interface.  The issues becomes confounded when the substrate becomes defective due to diffusion process, and the peak becomes broadened throughout the structure  (such as Figure \ref{B4:fig} or \ref{BGe4:fig}).  The placements of the modulation at the interface between the first layer and the substrate, at topmost layer, or within the intermediate layers created very different results.  This issue confronts the crudity of the weighted approximation.  The weighted broadening effect broke a new ground in explaining the broad substrate peak, but does not go far enough to accurately model the full range between a fairly straightfoward layer-based model (such as defective layer on a near-perfect substrate) to complex defect development due to processing (i.e. boron diffusion during annealing).   Layer-by-layer approach is proposed as a solution to this issue.  In this method, each layer will have modulation of broadening effect to the substrate peak individually.  The new approach will be used  to observe whether this method is more accurate and effective in broadening effect simulation than the weighted approach.
+
+In interest for keeping the logistics of the programing and calculations simple as possible for sake of computational power and time consumption, it is assumed that layer broadening effect is not significant since for large part, the defective structure of layer per se has been considered and incorporated into the original theory proposed by Kato.  The broadening effect was also initially proposed mainly to address the phenomena of substrate peak broadening due to the defect scattering of the layers.  
+
+Ironically, the mathematical presentation is simpler, however the logistics of programming was much more complicated.  The equation \ref{oldB} is modified as following:
+\begin{align}
+B_e =1+A_s (1-E)(\tau) \label{newB}
+\end{align}
+where each parameters represents the current layer, instead of using weighted approach.  The difference is the weighted approach was calculated only once, while the layered approach is calculated for every layer.  The sample B:1 is omitted from this chapter due to its near-dynamical nature, to which the broadening effects are negligible.  The layered model will be compared with the previous weighted method graphically below, along with comments.  The quality of the fits are not the best, but reasonable enough to draw prudent conclusions . The changes are marked as $weighted \rightarrow layered$, and if there are no changes, there will be only one parameter shown in the tables.  In addition, for the consistency, few of the weighted models were modified to reflect fair comparisons by including same number of layers for each samples in both approaches.
+
+%
+\begin{figure}[h]%
+\caption{Comparative Plots of B:2}
+\label{NB2:fig}
+\begin{minipage}{\linewidth} 
+\includegraphics*[width=\linewidth]{NewBroaden-Soak-Bo}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{NB2:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe	&  $50 \rightarrow 70$ & $0.65 \rightarrow 0.1$ & $ 0 \rightarrow 1$ & $ 4.7 \rightarrow 4.5$ \\
+  SiGe	 & $5 \rightarrow 5 	$	& $0.7 \rightarrow 0.1$	 &$ 0\rightarrow 2$ &$ 4.5 \rightarrow 4.4 $  \\
+  Si   	& $10 \rightarrow 30$	 &$ 0.6\rightarrow 0.3$ &$ 0.02\rightarrow 6$ & $-3$ \\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+  \end{minipage}
+	\end{figure}
+%
+
+\subsubsection{Sample B:2}
+
+The plots are are reasonably similar.  The top-most layer increased in thickness (50 to 70 nm), and the interfacial Si layer increased from 10 to 30 nm thick.  The overall structure order of the model (\emph{static Debye Waller factor, E}) has dramatically decreased, and the $\Delta_m$ has also increased correspondingly.  The proposed structure makes more sense, as the figure shows fully relaxed structure profile.
+
+\subsubsection{Sample B:3}
+
+The uppermost layer of SiGe almost doubled from 46 to 90 nm thick.  The total thickness of layers increased $\approx  90$ nm.  The overall order also decreased, along with increase of mosaic distribution among the layers.
+
+
+
+\begin{figure}[ht]%
+\caption{Comparative Plots of B:3}
+\label{NB3:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{NewBroaden-Spike-Bo}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\centering
+\vspace{10pt}
+Table for \fref{NB3:fig}\\
+ \begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & $46  \rightarrow 90$ &$ 0.4  \rightarrow 0.32$ &$ 0  \rightarrow 2.6$ & $3.3 \rightarrow 3.2$ \\
+  SiGe & 10  $\rightarrow 16$ & 0.9 $ \rightarrow$ 0.6& 0 $\rightarrow 1$ &  $3 \rightarrow1.3 $ \\
+Si	&$0.01  \rightarrow 36$&$0.3  \rightarrow0.015$&$ 0.004  \rightarrow 3$ &$ -1  \rightarrow 0$\\
+    Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+
+
+\subsubsection{Sample B:4}
+
+The layered method offers much improved fit around the substrate peak.  In keeping with weighted model as much as possible, the changes in structural order is significant.  The weighted method clearly had several dynamical coupling between interfacial layers that was not incorporated into the broadening effect during the initial analysis.  The layered method creates diffusive effects on the coupling between these interfacial layers, reducing it significantly.  
+
+
+
+\begin{figure}[ht]
+\caption{Comparative Plots of B:4}
+\label{NB4:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{NewBroaden-DSA-Bo}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{NB4:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 5  $\rightarrow$ 3.1& 0.2 $\rightarrow$ 0.48& 0.01 $\rightarrow$ 4.5& 1 $\rightarrow$ 0.72 \\
+  SiGe & 45 $\rightarrow$ 47& 0.4 $\rightarrow$0.47& 0.01 $\rightarrow$ 0.01& 1.37 $\rightarrow$  1.38\\
+  Si   & 65 $\rightarrow$ 64& 0.4 $\rightarrow$0.3& 0.01 $\rightarrow$ 0.2& $ -0.5 \rightarrow  -0.515$\\
+  Si 	 & 50 $\rightarrow$ 19& 0.5 $\rightarrow$0.2& 0.01 $\rightarrow$ 2& $-0.4 \rightarrow -0.118$\\
+  Si & 100  $\rightarrow$ 99& 0.9 $\rightarrow$0.09& 0.01 $\rightarrow$ 2.5& $-0.85 \rightarrow -0.97$\\
+  Si & 50 $\rightarrow$69& 0.2 $\rightarrow$0.98& 0.01 $\rightarrow$ 9.7&$ -0.64 \rightarrow -0.814$\\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Sample BGe:1}
+
+The modification once again causes overall increase in the layer thickness.  The strain profile remains relatively same, with the ``buffer'' Si layer being the most influenced in the fitting procedure.  One of the most notable effect of layered model is the sharp blunt from the surrounding peak toward lower angle.  As it can be observed in several fittings provided, this sharp gradient from low angle toward peak is prevalent in this model.  This sharp angle will be discussed later in the section.  As the trend continues, the changes in the order increases in long range and width of angular distribution of the moasic blocks as well.
+
+\begin{figure}[ht]%
+\caption{Comparative Plots of  BGe:1}
+\label{NBGe1:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{NewBroaden-AsI-BGe}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{NBGe1:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 6 $\rightarrow$ 10 & 0.1 $\rightarrow$ 0.995 & 0 $\rightarrow$ 5 & 7.7   \\
+  SiGe & 35 $\rightarrow$ 37& 0.1 $\rightarrow$ 0.2& 0 $\rightarrow$ 1.5 & 7.5 $\rightarrow$  7.36\\
+  Si & 10 $\rightarrow$ 15& 0.5 $\rightarrow$ 0.1& 0.05 $\rightarrow$ 2 & 3 $\rightarrow$ 2.9 \\
+    Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Sample BGe:2}
+
+Ironically, with this particular sample, only significant difference that was necessary to do similar fit was addition of Si ``buffer'' layer for the layered model.  The weighted method was overly sensitive to mosaic spread (as may be noted in the most fits that the distribution was often zero).  However with the layered method, it was necessary to ``add'' a dose of slight to moderate defective Si buffer layer to create more diffusive effect on the diffraction profile.
+
+\begin{figure}[ht]%
+\caption{Comparative Plots of BGe:2}
+\label{NBGe2:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{NewBroaden-Soak-BGe}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{NBGe2:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 30 & 0.4  & 0 $\rightarrow$ 1& -0.4  \\
+  SiGe & 20 & 0.2  &  0.6& $1.4 $  \\
+Si	&1 $\rightarrow$ 10 & 1 $\rightarrow$0.9  &   0 $\rightarrow$ 1 & 0\\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Sample BGe:3}
+
+With minor thickness increase, the largest change observed continues to be the Si buffer layer.  The other major changes continues to be the $\Delta_m$, while the staic Debye-Waller factor is impacted somewhat slightly.
+
+\begin{figure}[ht]%
+\caption{Comparative Plots of BGe:3}
+\label{NBGe3:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{NewBroaden-Spike-BGe}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{NBGe3:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe & 6   $\rightarrow$ 12 & 0.95  $\rightarrow$ 0.99 &0& $-1$  \\
+  SiGe & 42   $\rightarrow$ 44 & 0.4 & 0.01  $\rightarrow$ 0.02 & $-1 .1$  \\
+Si	& 20  $\rightarrow$ 30	& 0.25  $\rightarrow$ 0.16& 0.05  $\rightarrow$ 3.5& 0\\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Sample BGe:4}
+
+With this sample, the variation is kept to minimum between two models.   With very few adjustments, it is became very clear to what kind of effect the layering model has on the broadening effect.  The interfacial coupling fringes seen in weighted model disappeared as well as in sample B:4, and the overall broadness is greatly reduced, while allowing for more mosaic spread in $\Delta_M$ values.  
+
+\begin{figure}[ht]%
+\caption{Comparative Plots of BGe:4}
+\label{NBGe4:fig}
+\begin{minipage}{\linewidth}
+\includegraphics*[width=\linewidth]{NewBroaden-DSA-BGe}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{NBGe4:fig}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_m$ & strain $(10^{-3})$ \\
+    \hline
+  SiGe 	& 25  $\rightarrow$ 20& 1  $\rightarrow$ 0.95  & 0  $\rightarrow$ 0.2   & $3.96  \rightarrow 4$  \\
+  SiGe 	& 20 & 0.3  $\rightarrow$ 0.5& 0.01  $\rightarrow$0.1& $-0.97 \rightarrow -1.5$  \\
+  Si   	& 70 & 0.4 & 0.01  $\rightarrow$ 1& $-0.5		$ \\
+  Si 	& 45 & 0.5 & 0.01  $\rightarrow$ 1 & $-0.4		$\\
+  Si 	& 90 & 0.9 & 0.01  $\rightarrow$ 2& $-0.85		$\\
+  Si 	& 90  $\rightarrow$ 40 & 0.2  $\rightarrow$ 0.6 & 0.01  $\rightarrow$ 1& $-0.64$\\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+	\section{Discussion}
+
+The difference in the layered and weighted broadening effect is significant.  The  weighted approach provided a unique control over the substrate peak, using very simple method.  However, as it became apparent, especially with the deep Boron diffusion into the substrate, that this approach fails to consider the certain modulation effects of interfacial layers, especially layers that are homogeneous with the substrate, creating the classical dynamical coupling among each layers.  This dynamical coupling creates fringes that could go further than the actual broadening effects, creating artificial fringes and coupling among the layers.   With the new layered approach, it appears to be much more consistent with the structural ordering and proposed models than weighted approach.  The weighted approach also created drastically different results if the modulation was created in different locations within the structure (i.e. weighted broadening effects incorporated into substrate at substrate/first interface layer vs. topmost layer vs. two interfacial layers).  While the new layered approach offers much better models with proposed structural order (or defects), it has some notable properties such as sharp break  around the substrate peak where the broadening effects occurs.  More observations and experiments would be likely necessary to shed some light on this phenomena.
+
+\chapter{Study of SiGe Relaxation}
+
+This chapter focuses on the primary strength of the statistical diffraction theory:  the characterization of partially relaxed epitaxial layers.  In this study, there will be two distinct methods of studying the relaxation in the most simple way possible: growing a single SiGe epitaxial layer on Si substrate.  There is two methods that relaxation can occur:   increasing the layer's thickness beyond the critical thickness;  increasing the germanium percentage in alloy.  The samples, two sets totaling 7 samples, will be provided with six different types of HRXRD scans.   The control Si wafer is scanned as well to be incorporated into the background, instead of using modelling for background noise and instrumental broadening effects.
+
+These scans will be fitted with my model:  mSDDT in \MathLogo.  However, for verification and qualification purposes, several control runs will be performed with two other different commercially available fitting software (\LEPTOS and \RADS).  First test run will be a virtual sample with perfect 20nm SiGe layer on Si substrate.  The next step will consist of  fully-strained SiGe layer sample (Slot3)  being fitted by all three distinct softwares.  There will 13 fits offered for comparisons in Slot 3 sample among various software. (Note:  \RADS will not perform skew reflections).  The analysis analyzed in respect to similarities and differences among software will prove to be extremely insightful in mechanics of HRXRD modeling and simulations.  My mSDDT model will then be proposed for all remaining scans.  
+
+
+\section{Sample Summary}
+
+There are two separate sets of the samples.  The first set (Slot 3-7) has consistent composition (50\% Ge) with varying thickness (from 20 nm increasing to 70 nm), and the second set has consistent thickness (40 nm) with varying Ge composition (25-75\%).
+
+\begin{table}[h]
+\caption{Sets of SiGe samples}
+\label{TableSiGe-set}
+\centering
+\begin{tabular}{c|cc}
+Nickname & Thickness (nm)  & Ge percentage\\
+\hline
+Slot 3 	& 20	& 50\% \\
+Slot 5 	& 50	&50\%\\
+Slot 7	& 70	&50\%\\
+\hline
+SiGe1	& 40	&  25\% \\
+SiGe2	& 40 	& 35\%\\
+SiGe3	& 40	& 50\%\\
+SiGe4	& 40 	& 75\%\\
+\end{tabular}
+\end{table}
+
+
+\section{Experimental Scans}
+
+Six different types of scans were performed.  Two distinct different style of scanning were done with three different reflection geometry (004), (113) and (224):  See \fref{reflections}.  For additional discussions on the geometry and diffractometer's configurations based on these types of scans, please refer to Appendix \ref{machine}.  
+
+%In addition, the reciprocal space mapping (RSM) was done in 004 reflection for all of the samples.  A suggested reading is a throughout discussion on RSM methods and applications by Fewster \cite{FewsterRSM}.  The RSM is a 2-dimensional map (in this case) around 004 reflection point in the reciprocal space.  The RSM of Slot 3 will be used for initial introduction and further discussion,  \fref{SiGe1RSM004}
+%%\begin{figure}%
+%\centering
+%\caption{004 RSM  of Slot 3}
+%\label{SiGe1RSM004}
+%\begin{minipage}{0.6\linewidth}
+%\includegraphics*[width=\linewidth]{Slot3-RSM004}
+%\end{minipage}
+%\end{figure}
+%%
+%
+%
+%
+%\begin{figure}
+%\caption{004 RSM ofSlot 5}
+%\begin{minipage}{0.6\linewidth}
+%\includegraphics*[width=\linewidth]{Slot5-RSM004}
+%\end{minipage}
+%\end{figure}
+%
+%\begin{figure}
+%\caption{004 RSM ofSlot 7}
+%\begin{minipage}{0.6\linewidth}
+%\includegraphics*[width=\linewidth]{Slot7-RSM004}
+%\end{minipage}
+%\end{figure}
+%
+%\begin{figure}
+%\caption{004 RSM ofSiGe1}
+%\begin{minipage}{0.6\linewidth}
+%\includegraphics*[width=\linewidth]{SiGe1-RSM004}
+%\end{minipage}
+%\end{figure}
+%
+%\begin{figure}
+%\caption{004 RSM ofSiGe2}
+%\begin{minipage}{0.6\linewidth}
+%\includegraphics*[width=\linewidth]{SiGe2-RSM004}
+%\end{minipage}
+%\end{figure}
+%
+%\begin{figure}
+%\caption{004 RSM ofSiGe3}
+%\begin{minipage}{0.6\linewidth}
+%\includegraphics*[width=\linewidth]{SiGe3-RSM004}
+%\end{minipage}
+%\end{figure}
+%
+%\begin{figure}
+%\caption{004 RSM ofSiGe4}
+%\begin{minipage}{0.6\linewidth}
+%\includegraphics*[width=\linewidth]{SiGe4-RSM004}
+%\end{minipage}
+%\end{figure}
+
+
+%% USE RSM concept to describe the longitidual scans, and rocking curves, to why it was necessary to use wide open detector, etc.
+
+
+First type is $\omega/2\theta$ scans.  This type of scan is considered to be longitudinal scan, where the scan is directly across the \emph{h} axis in the reciprocal space.  As result, this particular type of scan ``scans'' the range of the d-spacing parallel to the normal surface of (001)Si wafer.  In asymmetrical reflections (113, 224), a skewed geometry is used.  In the skewed geometry, the sample is rotated until the normal vector of given reflection becomes parallel to the detector and source, allowing for symmetrical-like operation in asymmetrical reflection.  For in-depth descriptions of diffractometer geometry, please refer to Appendix \ref{machine}.  The normal asymmetrical grazing geometry did not have sufficient intensity for quality analysis in $\omega/2\theta$ scans.
+
+The second type of scan is the rocking curve scan.  This type of scan moves just the sample itself.  The diffraction from the layer was not visible with the slit in the place (in front of detector).  The variable slit was removed, and an open-wide container for detector was used.  The detector reception area is approximately one inch wide in the diameter.  The wide-open area of detection have larger area of detection; however, also introduces equally large amount of background noise.  
+
+
+\subsection{$\omega/2\theta$ 004}
+\fref{w2th004} consists of symmetrical 004 scan using variable slit set at 3mm at the detector side.  The fully strained sample SiGe1 and SiGe2 overlaps exactly the same, while the SiGe3 manifests strong non-dynamical layer diffraction peak, yet does not exhibit any typical dynamical fringes.  SiGe4 layer peak is of a typical fully-relaxed layer profile.  There is one interesting aspect:  The broadening effects on substrate is usually proportional to  defect-relaxation of the SiGe layer.  However, in this case, the partially relaxed (SiGe3) has more broad substrate peak than fully relaxed one (SiGe4). In \fref{w2th004-2}, the sample Slot3 is fully strained (perfectly dynamical), and the partially relaxed sample Slot5 exhibits some dynamical fringes, along with broad diffraction profile of layer.  The Slot7 sample is actually similar to SiGe3, but is slightly more strained.
+
+\begin{figure}[h]
+\centering
+\caption{$\omega/2\theta$ 004 SiGe1-4}
+\label{w2th004}
+\includegraphics*[width=0.85\linewidth]{SiGe1-4w-2th-004-2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{$\omega/2\theta$ 004 Slot 1-7}
+\label{w2th004-2}
+\includegraphics*[width=0.85\linewidth]{SiGeSlots-w-2th-004-2}
+\end{figure}
+
+\subsection{$\omega/2\theta$ skew 113}
+The sample was rotated until the $[113]$ vector is in line with the detector rotational plane, allowing for symmetrical-like scan to be performed.  All of the observations stated in earlier section is similar here in \fref{skew113}
+
+\begin{figure}%
+\caption{$\omega/2\theta$ skew 113}
+\label{skew113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe1-4w-2th-113skew2}
+\end{minipage}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlots-w-2th-113skew2}
+\end{minipage}
+\end{figure}
+
+\subsection{$\omega/2\theta$ skew 224}
+In same respect to the skew 113 reflection, the sample is rotated until the [224] vector coincides with the detector's rotation plane to allow for symmetrical-like scan.  Other than similar observations previously stated, there is interesting trend that is sharply contrasted in these two distinct sets of samples.  In SiGe series, the composition of Germanium varies,  hence the peak locations of the SiGe layer also vary approximately.  As in the Slot series, the composition remains at 50\%, the location of layer peak of all samples remains approximately at the same Bragg's angle.  Please refer to \fref{skew224}.
+
+\begin{figure}%
+\caption{$\omega/2\theta$ skew 224 }
+\label{skew224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe1-4w-2th-224skew2}
+\end{minipage}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlots-w-2th-224skew2}
+\end{minipage}
+\end{figure}
+
+\subsection{Open Wide Rocking Curve  004}
+Starting with next set of open-wide scan series, \fref{OW004} demonstrates the same basic diffraction pattern as shown in $\omega/2\theta$ scans, but with considerably higher background noise and intensity. The differences between the open-wide rocking curve and the $\omega/2\theta$ scan will be discussed in next few sections.  Other than the details are considerably less and the layer signal from SiGe4 layer is almost negligible, there is no additional information gleaned from this scan specific to the samples.
+\begin{figure}%
+\caption{Rocking Curve 004}
+\label{OW004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe1-4-OW004-2}
+\end{minipage}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlots-OW004-2}
+\end{minipage}
+\end{figure}
+
+\subsection{Open Wide rocking 113}
+The grazing incident geometry was used in this 113 reflection scan (\fref{OW113}).  The only additional observational interest is the abrupt drop-off of SiGe4 around 0.5 degrees.  It is likely due to shift from the diffraction reflection to specular reflection due to glancing angle being at near zero degrees.  
+
+\begin{figure}%
+\caption{Rocking Curve 113}
+\label{OW113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe1-4-OW113-2}
+\end{minipage}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlots-OW113-2}
+\end{minipage}
+\end{figure}
+
+
+\subsection{Open Wide rocking  224 }
+The grazing exit geometry was used in this 224 reflection scan.  The broadening effects on the substrate peak is much more clearer in these figures.  The SiGe4 layer peak is invisible, and the Slot 5 layer profile provides relatively strong diffraction intensity, despite the fact that it is considered partially relaxed structure at this point.  Please refer to the \fref{OW224}.
+
+\begin{figure}%
+\caption{Rocking Curve 224}
+\label{OW224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe1-4-OW224-2}
+\end{minipage}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlots-OW224-2}
+\end{minipage}
+\end{figure}
+
+
+
+\subsection{Differences in the scans}
+
+The symmetrical reflection (004) with two different types of scans (rocking curve) and the $\omega/2\theta$ scans are superposed together in one figure (\fref{Diff004}).  This figure gives a clear illustration of difference between open-wide detector rocking curves and $\omega/2\theta$ scans.  In quick glance, it is clear that the $\omega/2\theta$ has much better signal and data.  During the initial scans, the regular rocking curves with slit was not able to detect the SiGe layer's peak.  The difference in lattice parameter between SiGe layer and Si substrate was enough to escape the limited cross-section of slit-based rocking curves.  At the time, it was not clear whether  $\omega/2\theta$ was usable for modelling due to difference in geometry being scanned.  However, after some investigations, it was apparent that symmetrical scans will result in same deviation parameter values for either type of scans.  Only when in the asymmetrical reflections that the similarities begin to diverge, especially in the grazing geometry.  The plots are color coded respectively to the samples:  Black for SiGe1, Green for SiGe3, and Orange for SiGe4.  They also are above the same layer peaks of both scans which almost coincide at the same angle.  The layer peak does not shift, but the broadening can be observed for the rocking curve which also have much higher noise floor (1 to 2 orders higher than $\omega/2\theta$ scans).
+
+\begin{figure}%
+\caption{Differences in 004 scans}
+\label{Diff004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{Differences004-2}
+\end{minipage}
+\end{figure}
+
+\section{SiGe1 \& SiGe2}
+
+As it can be clearly observed in previous figures, that the HRXRD scans of SiGe1 and SiGe2 are virtually identical.  The presumption of being able to discern the compositional difference between SiGe1 and SiGe2 using some type of relaxation/elasticity theory based on HRXRD data is impossible.  According to the processing information, SiGe2 composition is at 35\% and SiGe1 is at 25\%.  Regardless, for the rest of the discussion, only one will be used for further analysis.
+
+\section{Software definitions}
+This section focuses on various software ({\textit{LEPTOS, RADS}}) and the mSDDT model based in \MathLogo and their definitions of lattice constants.  In typical set-up, it will be demonstrated that each software have the different automatic assumptions of given structure that has effect on strain measurements.  For a rigorous study of strain, it would be necessary to establish exact lattice parameters used in fits, instead of depending on commercial software's varying definitions of ``relaxation'' parameter, along with strain in (\RADS) or $dc/c$ in {\textit{LEPTOS}}.
+
+For illustration, if an user included a simple model, by adding a Si substrate and a layer of 20 nm thick Si$_{0.5}$Ge$_{0.5}$ without any additional parameter consideration is shown in \fref{CSP}.
+\begin{figure}[ht]%
+\caption{Comparative Simple Plots (004)}
+\label{CSP}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SimpleCompare2}
+\end{minipage}
+\end{figure}
+
+As it becomes obvious that the internal definition of lattice constant vary among software, in addition to the assumptions of already-strained layer (with relaxation parameter set to zero).  When the relaxation parameters in both software were reset to full relaxation to simulate the expected composition lattice parameter, the result is illustrated in \fref{CSRP}.  The agreement between all three software simulations are much improved, however continue to have several noticeable difference due to several factors (different engines, different sources of constants, and yet another sets of assumptions made within the system).
+
+\begin{figure}[ht]%
+\caption{Comparative Simple and Relaxed Plots (004)}
+\label{CSRP}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SimpleCompareRelaxed2}
+\end{minipage}
+\end{figure}
+
+For clarity, the mSDDT model uses the expected composition lattice parameter (`` relaxed'' lattice constant, $a_o$), then calculate the strain according the formula
+\begin{align}
+a_s =&sa_o\\
+s =& 1 + \Delta d/d
+\end{align}
+where $s$ represents strain, $a_s$ - strained lattice parameter, and the term $\Delta d/d$ can be positive or negative depending on whether the strain is compressive or tensile.
+
+In addition, according to different scans being used as discussed in previous section, the software has different definitions of what can be geometrically calculated.   {\textit{RADS}} does not allow for symmetrical skew geometry for asymmetrical geometry (113 and 224 reflections).  {\textit{LEPTOS}} was able to generate all geometric simulations.  A special note need to be made in regards to using $\omega/2\theta$ scans.  The geometry and calculations involved between rocking curves and $\omega/2\theta$ and rocking curve ($\theta$ scan) are same in symmetrical reflections.  Only if there are inclined geometry involved that the calculations $\omega/2\theta$ diverge based on asymmertical factor ($b$) as function of angle in deviation parameter ($\eta$).
+
+For further comparisons, fitting of sample Slot3 will be used.  The Slot3 is fully strained SiGe layer on Si substrate, where all commercial software are qualified to do reasonable fitting.  Also, in consideration of time limitations and significance of test fits, the quality of fits are not top quality on the commercial software, but to generate ballpark values to double check the reasonableness of the results.
+
+In \LEPTOS, the strain is defined as difference between top and bottom layer as function of $dc/c$.  As result, difference between relaxed layer and substrate is used as subtractive value for all fitted values of $dc/c$.
+
+\begin{table}[ht]
+\caption{Table of comparative models for Slot 3 fittings}
+\label{SiGeSlot3-Fits}
+\centering
+\begin{tabular}{c|cc|cc|cc}
+& mSDDT & &{\textit{RADS}} & & {\textit{LEPTOS}} \\
+\hline
+Reflection	&	Thickness	& 	Strain	&	Thickness	&	Strain	&	Thickness	&	Strain	\\
+\hline
+$\omega/2\theta$ 004&  18.5	&	16.5	& 17.1			& 17.6		& 17.9		&   	16.6  	\\
+$\omega/2\theta$ 113&19	&	9.5	& \textendash\ 	&\textendash	& 19.9	&     17.1	\\
+$\omega/2\theta$ 224 &20	&	3.7	&\textendash 	&\textendash 	&22.3		&    16.9	\\
+rocking curve 004	&  18.5	&	15.8	&18.2			& 16.8		&20.7		&     15.7	\\
+rocking curve 113	& 17.8		&	38.5	&18.0			& 24.9		&17.6		&	16.9	\\
+rocking curve 224	& 21		&	-14.9	&27			&-64.0		&21.1		&	16.1	\\
+\end{tabular}
+\end{table}
+The thickness is in nanometers, and the strain has implicit value of   ($10^{-3}$) .The differences between these softwares in asymmetrical reflections were significant enough for further investigation.  The rows represents the properties of Si layer on the Si substrate in six different reflection geometries.  Three major columns representes three different software, along with the two columns in each three major columns as thickness and strain of the given layer.
+
+\begin{figure}[ht]%
+\caption{Comparative Simple and Relaxed Plots (113)}
+\label{CSRP113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SimpleCompare113-2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]%
+\caption{Comparative Simple and Relaxed Plots (224)}
+\label{CSRP224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SimpleCompare224-2}
+\end{minipage}
+\end{figure}
+
+Another test run with virtual sample of Si Substrate with ``fully relaxed'' SiGe layer in 113 reflection was performed (\fref{CSRP113}) and 224 reflection (\fref{CSRP224}).
+The \RADS  and mSDDT were slightly different in peak location, similar with 004 difference, hence expected.  However, the \LEPTOS behavior was completely unexpected.  The difference is stark, and the behavior of (224) reflection at assumed termination angle is incorrectly assumed.  Keeping these under consideration, several assumptions will be made.  First, the mSDDT has demonstrated the reasonableness of model within margins of small strain-lattice parameter difference with \RADS in control model tests in all reflections (004, 113, 224).  Unfortunately, the same cannot be said for \LEPTOS.  The strain-lattice parameter will not be an exact science in the fittings, and only will propose range values of  strain.  Second, the mSDDT shall be assumed to be robust in all reflection used in this study.
+
+\section{The Fits}
+
+In this section, all of the plots will be fitted by the mSDDT method.  Each figure will contain two different types of scans in same relfection geometry (i.e. $\omega/2\theta$ and rocking curve in 004 reflection).  The background was not fitted by any approximation, convolution or any type of modelling, other than using the control sample data as an template for all of background noise and instrumental functions.  As result, due to some superposition, there may be excessive intensity observed in some regions around the substrate peak.  Unfortunately, at this time, the evolution (genetic) algorithm was not functioning optimially due to recent changes in the \MathLogo configurations, so all of the fits were manually performed.  For Slot samples, all of the compositions are set at $50\%$ Ge.
+
+\subsection{Slot 3}  
+
+Table \ref{SiGeSlot3-Fits} can be referred for the comparative purposes, but the mSDDT parameters are repeated here in relation to the figures for convenience.  In \fref{Slot3-004}, there are four plots.  Two sets of experimental data and simulated fits are overlapped for ease of observations.  In this figure, only 004 geometry are used, but two different types of scans were performed:  Open-wide (OW) rocking curve and longitudinal scans ($\omega/2\theta$) with 3mm slit.  In this case, the fits are almost faultless, with same thickness parameters, fully dynamical profile ($E = 1$).  The difference between strain (16.5 to 15.8)  is likely due to compounded noise in OW signal.  As it can be observed, there are slight shift in the scanned layer peak between two different scans.  The reason is likely the integrative results of OW scan creating artificial shift in the layer peak.
+
+\begin{figure}[ht]%
+\caption{Slot 3 004 Reflection Fits}
+\label{Slot3-004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot3-004Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot3-004}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+\hline
+&&{Open Wide (OW) Model}	 \\
+\hline
+			&	(nm)	&	strain  $(10^{-3})$	&	$E$&  $\Delta_M$\\
+\hline
+SiGe Layer		&  	18.5	&     15.8	 & 1 & \textendash	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	18.5	& 16.5	& 1	&\textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+Again,  there are four types of plots in the \fref{Slot3-113} that represents the 113 geometry reflection.  The OW version is in grazing incidence geometry, while the $\omega/2\theta$ plots are performed in skewed geometry (pseudo-symmetrical).  The fits, especially around the layer peaks are near-perfect.  However for the OW plots, the simulated substrate peak is much higher than experimental data.  The suspected reason is due to control substrate dataset that was used for background is likely to have lower higher angle intensity than Slot 3 sample, causing the overcompensation in the substrate area (It is possible that the control Si 113 data may be low quality due to non-optimized scan).The thickness profile difference is reasonable (1.2 nm), however the strain difference is significant (38.5 to 9.5).  The error is likely to be due to two possibilities:  skewed geometry has unexpected asymmetrical factor effects and/or missing asymmetrical factors in traditional rocking curve simulations.  
+
+\begin{figure}[hc]%
+\caption{Slot 3 113 Reflection Fits}
+\label{Slot3-113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot3-113Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot3-113}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+\hline
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	17.8	&     38.5	 & 1 & \textendash	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	19	& 9.5	&1	& \textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\fref{Slot3-224} also contains four plots like previous figures, consisting of skewed scan (\emph{w-2th}), along with grazing exit rocking curve (OW).  The fits are excellent, other than the noise factor in skewed experimental data in higher angle range.  The thickness parameters are within reasonable range (approximately 1 nm difference), however once again the strain profile is drastically different ($-14.9$ to $3.7$).  The reason is suspected to be the same as above, asymmetrical factor in either skewed reflection and/or rocking curve simulations.  
+
+
+\begin{figure}[hc]%
+\caption{Slot 3 224 Relfection Fits}
+\label{Slot3-224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot3-224Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot3-224}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+\hline
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	21	&     -14.9	 & 1 &\textendash	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	20	&3.7	&1	&\textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsection{Slot 5}
+
+The true challenge begins here with the partially relaxed sample, Slot 5.  There will be more in-depth discussions about the quality of fits later in the discussion section.  For now, only one layer model will be used in this chapter for number of reasons.  First, the quality of fits are difficult to perform manually, and increases exponentially for each layer that is used to represent the structure.  In practice, it is likely to have some type of gradient of strain and defect within the structure.  However, that requires artificial divisions of structure into lamallar fashion for discrete related calculations due to computational calculation limitations.  With that issues in mind, we will focus on simple single uniform layer on the Si Substrate models to demonstrate the range of the modified statistical dynamical diffraction theory (mSDDT) abilities.
+
+\fref{Slot5-004} has four plots as in previous figures.  Two types of scans were performed:  Skewed and rocking curves in 004 geometry.  Interestingly, the layer peak in both scans have same peak intensity at exact same angle.  The fits which is very reasonable with the restrictions of single uniform layer model has all same parameters with single exception of $\Delta_m$ where the difference of 0.75 is more likely due to the difference of scan quality.
+
+
+
+
+
+\begin{figure}[hc]%
+\caption{Slot5 004 Reflection Fits}
+\label{Slot5-004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot5-004Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot5-004}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	45	&      16	 & 0.90 & 5	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	50	& 16	& 0.90	& 5.75	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\fref{Slot5-113} consists of four plots, two types scans performed in 113 reflection geometry with fits.  Similar with the Slot 3 configuration, the OW scan is grazing incidence geometry while skewed is done in symmetrical type of scan.  The quality of fit is considerably lower in OW model, however is likely due to increased sensitivity to the lack of interfacial layer (gradient of defect and strain effect) in this particular geometry (Please refer to the discussion part for in-depth analysis of interfacial layer issue).  The thickness is same in both scans, but the majority of other parameters are distinctly and significantly different.  The OW model have rather large strain profile (37.25) in comparison to 9.9 in skewed scan.  Due to other geometric scans and observations, it's likely that the OW scan proposal is not good representative of the possible structure.  The skewed geometry appears to be within the expectations of the actual structure.  At this point, the nature of the apparent discrepancy of OW simulation is not clear.  However, as it will also be discussed in depth later about potential pitfalls and analysis of various possible reasons for these type of discrepancies.
+
+\begin{figure}[h]%
+\caption{Slot5 113 Reflection Fits}
+\label{Slot5-113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot5-113Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot5-113}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	50	&      37.25	 & 0.32& 10	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	50	&9.9	& 0.89	& 7.5	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\fref{Slot5-224} consists of two types of scans with fits (four plots).  Similar with the Slot 3 224 figure, the OW model is grazing exit geometry while the$\omega/2\theta$ is in skewed (quasi-symmertical) geometry of 224 reflection.  The thickness profile in 224 reflection is within the range of 50-55 thickness, so at this point, we have proposed layer with thickness of $50\pm5$ nm.  The strain profile, interestingly, has same issue as Slot3.  The opposite sign ($-14.8$ to 13.8) of the strain implies one to be compressively and another to be tensilely strained.  At least the differences in 224 strain profiles appears to be consistent, indicating a systematic error in the calculations. 
+
+
+\begin{figure}[h]%
+\caption{Slot5 224 Reflection Fits}
+\label{Slot5-224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot5-224Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot5-224}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$  &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	50	&      -14.8	 & 0.985 & 10	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	55	& 13.8	& 0.90	& 5.75	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+\caption{TEM micrograph of Slot 5}
+\label{TEM-Slot5}
+\includegraphics[width=\linewidth]{TEM-Slot5}
+\end{figure}
+
+The TEM micrograph of  Slot 5 (\fref{TEM-Slot5}, courtesy of Dr. Kathy Dunn) appears to be defect-free, and does not show any dislocations.  The measured thickness shows to be approximately 47 nm, in close correspondence with the proposed mSDDT model ($50\pm5$ nm).    This TEM micrograph emphasizes the strength of the HRXRD's ability to detect the defects/dislocations at much higher resolution and efficiency.  The partially relaxed samples are becoming more common as the thickness of the layers progressively decreases, while the strain increases between the mismatch between the layers. A note must be added in regards to the presence of the Platinum (Pt) in the micrograph.  The TEM sample were prepared using Focused Ion Beam (FIB) process, and the Pt is used as a protection layer during the sample preparation.
+
+
+\subsection{Slot7}
+
+The Slot7 sample is \emph{fully} relaxed sample, indicating it's ideally kinematical, complete with diffusive elements and broadening effects.  \fref{Slot7-004} shows four plots two types of scans (skewed and rocking curve) with fits.  The degree of relaxation appears to have stronger effect on quality of fit.  It is likely that the monolayer with uniform structure is in stark contrast to the actual structure of varying gradients of strain and relaxation.  The thickness difference in the scans is 10 nm, while the static Debye Waller factor is same in both (near zero).  Mosaic spread ($\Delta_m =8$ to $5.5$) which is likely due to large effect of noise from open-wide detector than the actual structural effect.  
+
+
+\begin{figure}[hc]%
+\caption{Slot7 004 Relfection Fits}
+\label{Slot7-004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot7-004Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot7-004}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	60	&      11	 &0.01 & 8	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	70	& 11	&0.01	& 5.5	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\fref{Slot7-113} demonstrates quite readily the difficulty of fitting the data with the uniform single layer model.  The thickness continue to be 10nm difference between two types of scan.  The difference in strain profile  (26.5 to 8) and have similar pattern as Slot 5.  The profile of defects ($E$ and $\Delta_m$) appears to be sketchy, mainly because of poor quality of fit that allows the margins of error to  be larger than what would have been acceptable.
+
+\begin{figure}[hc]%
+\caption{Slot7 113 Relfection Fits}
+\label{Slot7-113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot7-113Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot7-113}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	70	&      26.5	 & 0.05& 10	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	60	& 8	& 0.6	& 7.1	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\fref{Slot7-224} shows fits of two types of scans (skewed and rocking curve) in 224 geometry.  The OW scan fit quality is not so good, although the $\omega/2\theta$ fit is much better in contrast.  Ironically,  the thickness difference continues to be 10 nm, and the strain profile is same as other samples in 113 reflection (-13 to 14.5) showing opposite strain directions.  However, with all these six scans of three different scans shows a good picture of what to expect of the proposed structure.
+
+\begin{figure}[hc]%
+\caption{Slot7 224 Reflection Fits}
+\label{Slot7-224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGeSlot7-224Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{Slot7-224}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	60	&      -13	 & 0.01 & 10	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	70	& 14.5	&0.01	&6.5	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+\caption{TEM micrograph of Slot 7}
+\label{TEM-Slot7}
+\includegraphics[width=\linewidth]{TEM-Slot7}
+\end{figure}
+
+The TEM micrograph of Slot 7 (\fref{TEM-Slot7}, courtesy of Dr. Kathy Dunn)  shows that the thickness is approximately 66 nm and have highly visible dislocations that is calculated to be at $1.06 x 10^{13} cm^{-2}$ for length/volume and top surface area calculation is $7.3 x 10^9 cm^{-2}$ (Calculations provided compliments of Dr. Kathleen Dunn).  The thickness correlates nicely with the mSDDT model structures ($65 \pm 5 nm$).  However as for dislocation density, there is yet to be empirical data correlation between the static Debye-Waller factor and the mosaic spread ($\Delta_m$).
+
+
+\subsection{SiGe1 \& SiGe2}
+
+Due to identical scans between SiGe1 and SiGe2, they will be simply put together under this section, and only SiGe1 will be presented with the fits.  In addition, the composition will be fixed with Ge at 25\%.  Even though SiGe2 is different compositionally, the lattice parameter will be exactly same in XRD models.  If it becomes necessary to calculate the strain in relation to ``relaxed'' lattice parameters in respect to actual composition, the recommended method is to calculate the expected relaxed parameter of given composition, and calculate the strain based on fitted lattice parameter.
+
+\fref{SiGe1-004} contains two types of 004 reflection scans ($\omega/2\theta$ and rocking curve) with simulated fits.  As is to be expected, the sample is highly coherent (crystalline) and is dynamical in nature.  As result, the scans results in two matching parameters of thickness of 40 nm and 12 for strain.  
+
+\begin{figure}[hc]%
+\caption{SiGe1 004 Reflection Fits}
+\label{SiGe1-004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe1-004Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe1-004}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$&  $\Delta_M$\\
+\hline
+SiGe Layer		&  	40	&      12	 &\textendash & \textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	40	& 12	&\textendash	&\textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\fref{SiGe1-113} once again contain the same four plots as previous figures.  The OW scan also have similar situation as \fref{Slot3-113} in regards to excessive substrate intensity around the peak.  The reasoning behind this is believed to be the extra sensitivity of this particualr type of scan to increased intensity of control substrate in respect to the layer peak.  If the control sample were to be compensated logically to reduce the overall intensity of surrounding substrate peak logarithmically, it would be likely to be much more improved fit.  The focus here is on the layer peak more than on the substrate peak, especially for only-dynamical profiles such as this where the broadening effects is not prevalent.  
+
+\begin{figure}[hc]%
+\caption{SiGe1 113 Reflection Fits}
+\label{SiGe1-113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe1-113Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe1-113}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	40	&   24.8	 &\textendash & \textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	43	& 8	&\textendash&\textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\fref{SiGe1-224}  show well-fitted scans in 224 reflection in rocking curve and \emph{w-2th} methods.  Once again the trend of opposite strain between two scans prevails in this sample (-6.7 to 4.6) and the thickness is only 3 nm different, same as 113 reflection earlier in this section.  
+
+\begin{figure}[hc]%
+\caption{SiGe1 224 Reflection Fits}
+\label{SiGe1-224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe1-224Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe1-224}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	43	&      -6.7 &\textendash & \textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	46	&4.6	&\textendash	&\textendash\ 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+\subsection{SiGe3}
+
+All of the composition is set at 50\% Ge for this section on SiGe3 sample.  In \fref{SiGe3-004}, as usual, the $\omega/2\theta$ provides a better fit and information.  Interestingly, the thickness conintues to be reliably same (40 nm thick layer) of strained SiGe.  The strain, on other hand, is different by 1, which can be aptly assigned to integrative nature of OW scan, creating the artifical shift of the already-compromised layer peak.  The differences in the structural order is much more notable as the sample becomes more relaxed and defective, making a strong point in data collection as vital as possible.  If data sets are not of a top quality, to which open-wide scans is a good demonstration of, then it's prone to erroneous interpretation and data interpolations.
+
+\begin{figure}[hc]%
+\caption{SiGe3 004 Reflection Fits}
+\label{SiGe3-004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe3-004Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe3-004}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	40	&      13.5	 &0.4 & 10 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	40	& 12.5	&0.25	&5.5 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+Not surprisingly, the open-wide rocking scan in SiGe3 113 reflection (\fref{SiGe3-113}) is poor compared to skewed scan.  The proposed thickness is between 40-43 nm, which corresponds nicely to the proposed structure for 004 scan (\fref{SiGe3-004}).  The trend in 113 strain difference between the two scan continues (32 to 8).  The quality of the layer peak in open-wide is excessively broadened, and much lower quality than skewed geometry, therefore, the confidence in the proposed open-wide scan defect model is questionable.  From visual inspection and experience of fitting, it is more likely that long order ($E$) would be within partially relaxed range (0.4) than fully relaxed range (0.1).
+
+\begin{figure}[hc]%
+\caption{SiGe3 113 Reflection Fits}
+\label{SiGe3-113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe3-113Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe3-113}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ & $\Delta_M$\\
+\hline
+SiGe Layer		&  	40	&   32	 &0.1 & 12 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	43	& 8	&0.4&7 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+Once again, the $\omega/2\theta$  and open-wide scans in 224 reflection (\fref{SiGe3-224}) provides 40nm thick SiGe (Ge is preset at 50\%).  At least, regardless of differences in strain profiles (-12 to 3.7) and the defect profiles, the thickness profiles continues to be consistently precise.    
+
+\begin{figure}[hc]%
+\caption{SiGe3 224 Reflection Fits}
+\label{SiGe3-224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe3-224Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe3-224}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	40	&      -12	 &0.3 & 7	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	40	& 3.7	&0.4	&10	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+
+
+\subsection{SiGe4}
+
+
+All of the composition is set at 75\% Ge for this section on SiGe 4 sample.  This sample is basically at the kinematical limit with values of $E=0.1$ in both types of 004 scans in \fref{SiGe4-004}.  As expected, the values of $\Delta_M$ is much higher in open-wide scans.  The $\omega/2\theta$ scan fit  is of a good quality, especially considering that the structure is defined as fully relaxed, and is fitted only with one layer.  The proposed layer thickness is 30-40 nm.
+
+\begin{figure}[hc]%
+\caption{SiGe4 004 Reflection Fits}
+\label{SiGe4-004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe4-004Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe4-004}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	30	&     0	 &0.1 & 20 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	40	& 5.5	&0.1	&9 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+Surprisingly, in the 113 reflection scans (\fref{SiGe4-113}), the quality of fits in both types of scans are very good.  The thickness range is much closer (40 to 43 nm thick), and same values of $E$ for both scans.  The difference in strain profile continue to demonstrate the same trend throughout the various scans and samples.
+
+\begin{figure}[hc]%
+\caption{SiGe4 113 Reflection Fits}
+\label{SiGe4-113}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe4-113Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe4-113}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain  $(10^{-3})$	&	$E$  &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	40	&   20	 &0.1 & 25 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	43	& 1	&0.1&15 	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+The open wide scan in \fref{SiGe4-224} has virtually no signal from the layer peak above the noise signal so the quality of the fit is questionable.  However, for the $\omega/2\theta$, the fit quality is excellent.  The proposed thickness continue to be within the 40nm range.
+
+\begin{figure}[hc]%
+\caption{SiGe4 224 Reflection Fits}
+\label{SiGe4-224}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{SiGe4-224Fits2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{SiGe4-224}\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&Open Wide (OW) Model)	 \\
+\hline
+			&	(nm)	&	strain $(10^{-3})$	&	$E$ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	40	&      -12	 &0.1 & 25	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &$\omega/2\theta$ Model \\
+\hline
+SiGe Layer		&	40	& 0	&0.1	&15	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+
+\section{Discussion}
+
+It is obvious that the difference between $\omega/2\theta$ scans and \emph{rocking curve} scans for asymmetrical reflections are at odds with each other in this study on the strain profiles.  It is not clear at this point to what exactly causes the discrepancy.  A systematic investigation with most basic structure possible in as many geometric and equipment configurations (well beyond this current research's scope) would be necessary to explore these differences in depth.  However, it did become apparent as the most coherent (cyrstalline-perfect) diffraction still have the same pattern regarding to the strain issues as other structurally-defective samples.  For the next phase of study regarding the strain differences, it would be practical to focus on fully strained (no defects) samples to see if the exact nature of difference can be pinpointed.  As it has been mentioned earlier in this section, the suspected cause is asymmerty factor where the $b \neq -1$.  In skewed geometry, it is assumed that $b = -1$, since it is pesduo-symmertical operation.  This type of assumption may be incorrect, but additional verification on \emph{known} strain profile would be much more efficient to determine whether the skewed approach with that assumption is correct or not.  The trends in the current study is observable, indicating that it is systemic error in the calculations.
+
+\begin{table}[h]
+\centering
+\caption{Strain Differences in 113 Reflection}
+\label{diff-113}
+\begin{tabular}{c|cccc}
+Samples & OW scan & $\omega/2\theta$ scan & Difference & Factor\\
+\hline
+  Slot 3 & 38.5&9.5&29 & 4.052\\
+ Slot 5 & 37.25 &9.9&27.35 & 3.762\\
+Slot 7&26.5&8&18.5 & 3.3125\\
+SiGe1&24.8&8& 16.8 & 3.1\\
+SiGe3&32&8&24 & 4\\
+SiGe4&20&1&19 & 20\\
+\end{tabular}
+\end{table}
+
+Table \ref{diff-113} lists the strain profiles for all samples  in both scans in the 113 reflection.  The asymmertical factor ($b$) is calculated to be at -0.060097 in open wide grazing 113 geometry, and the averaged factor between the skewed geometry and open wide scan in 113 reflection is $\approx 3.64 $ (neglecting outlier: SiGe4).   Obviously, not just asymmertical factor is involved, but there appears to be fairly consistent factor involved.
+
+
+\begin{table}[h]
+\centering
+\caption{Strain Differences in 224 Reflection}
+\label{diff224}
+\begin{tabular}{c|cccc}
+Samples  & OW scan & $\omega/2\theta$ scan & Difference & Factor\\
+\hline
+  Slot 3 & -14.9 & 3.7 &-18.6 & -4.027\\
+ Slot 5&-14.8&13.8& -28.6 & -1.072\\
+Slot 7&-13&14.5 & -27.5 & -0.896\\
+SiGe1&-6.7&4.6 & -11.3 & -1.456\\
+SiGe3&-12&3.7 & -15.7 & -3.243\\
+SiGe4&-12&0 & -12 & --\\
+\end{tabular}
+\end{table}
+
+Table \ref{diff224} lists the strain profiles for all samples in the 224 reflection.  The asymmetrical factor ($b$) is calculated to be at -6.4869 for the open wide grazing geometry.  The differences between the skewed and the grazing geometry in the 224 reflection does not offer consistent values or factor other than that the strain is in opposite directions (compressively vs. tensilely).
+
+
+In addition,  it has been apparent in the comparisons of different software that the asymmetrical reflections, strain vs relaxation definitions, and also the existence of varying definition of fringes crops from many different types of assumptions made within the matrix of calculations.  For instance the deviation parameter proposed in this dissertation is not the \emph{exactly} correct one.  For a good introduction of this subject, please refer to the work of Zaus \cite{Zaus1}.
+
+\subsection{The Quality of the Fits: Layers}
+
+With these partially relaxed and relaxed structures, a true test of modeling and simulations begins.  With that in consideration, it is common practice where one or several additional layers can be incorporated into the model structure for an improved fit.  As result, a risk of adding unrealistic layers becomes a concern if the focus is not on the practical approximations, but solely on ``quantity' 'of the fit.   For illustration, two different fits are shown.  The ``better looking'' fit (\fref{Slot5-2layer}) has two layers instead of just one layer (\fref{Slot5-One004}).  Also, due to time constrains and lack of quality genetic algorithm for better automatic fitting, it is decided at this phase to limit the fits to only one layer per scan in this section.  This decision on single layer model also illustrates the brute force of this model, whether it can adequately describe the structure in the most simple model possible. 
+
+\begin{figure}[hc]%
+\caption{Slot5 One layer fit}
+\label{Slot5-One004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{Discussion-Slot5-onelayer004-2}
+\end{minipage}
+\end{figure}
+
+The single-layer model has strong fringes between the layer peak and substrate (-5000 to -4000 arcseconds), while the experimental data shows smooth drop-off from the peak, indicating that this angular range has higher defect density than the model.   This decreased quality of crystalline reflection in that range  implies an more relaxed interfacial layer that is more defective than top part of the SiGe film.  The interfacial layer as proposed is illustrated in the \fref{Slot5-Interfacial004}.
+
+\begin{figure}[hc]%
+\caption{Slot5 Interfacial Layer proposal}
+\label{Slot5-Interfacial004}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{Discussion-Slot5-interfacialayer004-2}
+\end{minipage}
+\end{figure}
+ 
+Once that interfacial layer is incorporated into the two-layer model structure, the fit has improved considerably in that range.  Granted, the fit is not perfect, but has shown two things:  1) The fit now is much improved 2) The model structure makes more sense.  The properties of proposed top layer model between single and double layer vary only slightly with layer being slightly more crystallographically perfect (being offset by relaxation of interfacial layer).
+
+\begin{figure}[hc]%
+\caption{Slot5 Two Layer Fit}
+\label{Slot5-2layer}
+\begin{minipage}{0.85\linewidth}
+\includegraphics*[width=\linewidth]{Discussion-Slot5-twolayer004-2}
+\end{minipage}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for Figure (\ref{Slot5-One004}, \ref{Slot5-Interfacial004}, and \ref{Slot5-2layer})\\
+\vspace{5pt}
+\begin{tabular}{c|cccc}
+			& 	&One layer model	 \\
+\hline
+			&	(nm)	&	strain	 $(10^{-3})$&	$E $ &  $\Delta_M$\\
+\hline
+SiGe Layer		&  	50	&      16	 & 0.90 & 5.75	\\
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash	\\
+\hline
+			& &Two Layer model \\
+\hline
+SiGe Layer		&	48	& 16	& 0.95	& 4	\\
+Interfacial Layer	&	20	&14	& 0.60		& 0\\	
+Si Substrate		&	\textemdash & \textemdash&\textemdash\ &\textemdash
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+
+
+
+
+\chapter{C-doped Si}
+
+With C-doped Si, an interesting phenomena has occurred at $900\degC $ where the layer of doped carbon has shown some relaxation, along with some higher-degree loss of dynamical fringes,  \fref{C-si-compare}.
+
+\begin{figure}[h]
+\centering
+\caption{Comparisons of different annealed temperatures of carbon doped Si}
+\label{C-si-compare}
+\includegraphics[width=0.85\linewidth]{C-Si-Compare.jpg}
+\end{figure}
+
+Dynamical fits were performed on both As Is, \fref{DyFit-C-Si}, and  annealed $900\degC$ (\fref{DyFit-C-Si009}).  The As-Is fit is excellent, and the fringes within the annealed sample lines up nicely until after the layer peak at higher angles.  In addition, it can be observed that the intensity for the annealed sample is much higher for simulated dynamical fit compared to the experimental data, and the simulated plot has continued fringes after the layer peak.
+
+\begin{figure}[h]
+\caption{Dynamical fit of As-Is C-doped Si}
+\label{DyFit-C-Si}
+\includegraphics[width=\linewidth]{C-Si-Fit005.jpg}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{DyFit-C-Si}\\
+\begin{tabular}[htbp]{@{}c|cc@{}}
+    \hline
+  Type & Thickness(nm) & strain $(10^{-3})$ \\
+    \hline
+ Si	& 	75& -11.5\\
+  Si Substrate & --  & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+\caption{Dynamical fit of $900\degC$ annealed C-doped Si}
+\label{DyFit-C-Si009}
+\includegraphics[width=\linewidth]{C-Si-Fit009DY.jpg}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{DyFit-C-Si009}\\
+\begin{tabular}[htbp]{@{}c|cc@{}}
+    \hline
+  Type & Thickness(nm) & strain $(10^{-3})$ \\
+    \hline
+ Si	& 	75& -8.5\\
+  Si Substrate & --  & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+Using the mSDDT model, the \fref{C-SiFits} shows three plots:  experimental data of $900\degC$ sample, mosaic and spherical fits.  The table of figure offers two different types of $\Delta_M$  values specific to either spherical or mosaic correlation length models.  Interestingly, both approaches offers basically same type of fits, with similar quality of diffraction profiles for defects.  The suspected relaxation and formation of defect in the annealed sample is likely to be non-symmetrical, and may have preferential direction, creating asymmetrical effect on relaxation(for instance:  disappearance of fringes only on one side of the layer peak).  
+
+The fits are not of highest quality, and the disappearance of the fringes at higher angle after the layer peak is not adequately represented,  however the basic proposed structure offers some insights in possible internal structure of the annealed sample.  The topmost layer has $E=1$ which represents that the structure is crystallographically defect-free.  The interfacial layers (10 nm and 5 nm interfacial Si layers) shows some deformations, likely due to carbon mobilization, and possibly early formations of the carbon precipitations.  
+
+The specific defect structure may not been clearly defined or interpolated perfectly into the experimental data, but tools provided by mSDDT allows for fairly accurate proposal on the thickness, strain, and the general defect structure, which is more than conventional dynamical models can provide.
+
+
+\begin{figure}[h]
+\caption{mSDDT Fits of c-doped Si}
+\label{C-SiFits}
+\includegraphics[width=\linewidth]{C-Si-Fit009Fits.jpg}
+\begin{minipage}{\linewidth}
+\centering
+\vspace{10pt}
+Table for \fref{C-si-compare}\\
+\begin{tabular}[htbp]{@{}c|cccc@{}}
+    \hline
+  Type & Thickness(nm) & $E$ & $\Delta_M$ & strain $(10^{-3})$ \\
+    \hline
+	&			&  & Spherical $\rightarrow$ Mosaic & \\
+\hline
+  Si 	&	70	& 	1	 &	10 $\rightarrow$ 5	& $-0.855$  \\
+  Si & 	10	& 	0.5	&	7  $\rightarrow$ 20 & $-0.86$  \\
+Si	& 	5 	& 	0.7	&	10 $\rightarrow$ 5 &-2\\
+  Si Substrate & -- & 1 & 0 & 0 
+  \end{tabular}
+\end{minipage}
+\end{figure}
+
+
+\chapter{Conclusion}
+
+In the modern days of sophisticated technology,  it becomes increasingly necessary to develop novel methods of material characterizations, especially in the defect and strain engineered materials as the limits of the materials are pushed to the atomic scale.  When these materials are pushed to the limits on increasingly smaller scales, the defects becomes more and more prominent in respect to the impact on overall designs.  One of the most effective and non-destructive methods of characterizing the materials is high-resolution X-ray diffraction (HRXRD), which can detect defects and strain down to atomic scale.  The challenge is to develop interpolation method to extract the HRXRD data.
+
+\section{Development of mSDDT}
+
+\MathLogo was used to develop the initial XRD engine, including basic X-ray scattering calculations, structure factor for given materials, and eventually classical X-ray diffraction.  Once the traditional diffraction was developed, the limits of diffraction (kinematical vs. dynamical) was explored.  Statistical Dynamical Diffraction Theory (SDDT) was determined to be a good candidate for exploring the limits of the diffraction for materials that exhibits perfectly dynamical to ideally imperfect diffraction profiles.  As the SDDT was successfully duplicated and repeated, the new parameters (static Debye-Waller factor and Correlation Length) was explored in respect to how the diffraction profiles changes respectively to the parameters.  Two different correlation length models were also explored, and a proposed generalization for quick defect characterization were also proposed.  When a highly defective structure were used for initial analysis, it was shown that SDDT failed to incorporate the broadening effects of the defects within the layered structure.  A solution of broadening effects were proposed as part of the equation, creating modified SDDT (mSDDT) that controls the broadening effect on the substrate peak based on layer's defect parameters.
+
+\section{mSDDT accomplishments}
+
+With many different types of samples that spans full range of the diffraction (perfect classical profile to kinematical limit), mSDDT were tested to the limits.  The nominal information on structures were accurately extracted and reliably in all symmetrical reflections. The asymmetrical reflection provided to be more challenging, as the differences of skewed and grazing geometry, along with asymmertical factor and possibly strain calculations are observed to be systematically erroneous.  However, the thickness, and proposed overall long order (the correlation length to lesser degree) are still reliably extracted in most cases.  It has been noted that even in commercially available methods, that the asymmertical reflection calculations are challenging.
+
+With this new method of material analysis, a defect modeling is now available with great potential for improvement and increasingly sophsticated models for quick defect characterization that can be flexible in using non-specific defect fitting to specific defect type which can be also developed independently from the overall engine of mSDDT.
+
+\section{Future Directions and Goals}
+
+The carbon-silicon alloys has provided an interesting defect-relaxation profile that mSDDT did not adequately fit with provided length correlation models. A uniquely non-symmetrical defect model is likely to be necessary to develop satisfactory profile for the disappearance of the fringes only on one side of the layer peak.  However even with this limitation, the thickness and proposed model of the \fref{C-SiFits} still provided sensible structure of the material.  
+
+The next several steps would be necessary to brand mSDDT as an robust and necessary method for the next generation of material characterization.
+
+{\SingleSpacing 
+\begin{enumerate}
+\item Collect more empirical data of material from other sources of characterization to confirm all parameters, and develop correspondence.
+\item Analyze the asymmetrical discrepancies by exploring fully strained and well-known structures, and collaborate the known strain with the fits.
+\item Explore defect models for correlation length for specific types of defects.
+\item Revisit broadening effects for possible improvements.
+\end{enumerate}}
+
+
+
+In addition, the translation of this mSDDT engine from \MathLogo is necessary for user-friendly application, along with intensive reprogramming of fitting algorithm for better convergence.
+
+
+
+
+
+
+	
+\appendix
+
+	\chapter{Equivalence of Bushuev's Treatment of T-T equations to well-known dynamical T-T equations based on Bartels, Hornstra and Lobeek's work}\label{Compare2}\input{appendix2}
+
+\chapter{Programming \& Algorithms}
+
+The modeling and simulations are exclusively done on \MathLogo 5.  The language developed by the \MathLogo is unique and mathematically oriented, designed to be user-friendly for mathematically intensive programming, calculations, modeling, and simulations.  However, the language itself has moderate to severe steep learning curve, with commands that are not always intuitive for the uninitiated.  The saved \MathLogo files  is usually called notebooks (*.nb), with additional modules that are called packages (*.m).  At time of this dissertation, the latest version available to public is \MathLogo 8, so there may be some issues with compatibility between the versions. 
+
+\section{Structure of the Logistics}
+
+In attempt to create somewhat user-friendly interface within the \MathLogo 5, several customized packages were generated with one main notebook (called Main Interface in diagram) being used mainly as GUI interface for user.  
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shadows}
+
+\tikzstyle{every entity} = [top color=white, bottom color=blue!30,draw=blue!50!black!100, drop shadow]
+\tikzstyle{every weak entity} = [drop shadow={shadow xshift=.7ex,shadow yshift=-.7ex}]
+\tikzstyle{every attribute} = [top color=white, bottom color=yellow!20,draw=yellow, node distance=1cm, drop shadow]
+\tikzstyle{every relationship} = [top color=white, bottom color=red!20,draw=red!50!black!100, drop shadow]
+\tikzstyle{every isa} = [top color=white, bottom color=green!20,draw=green!50!black!100, drop shadow]
+
+
+\begin{tikzpicture}
+\node[isa](main){Main Interface};
+\node[attribute](cons)[above right=of main] {Constants} edge [->] (main);
+\node[attribute](prein)[above left=of main] {Pre-initializations}edge [->] (main);
+\node[entity](GA)[below right=of main]{Genetic Algorithm}edge(main);
+\node[entity](FCal)[below left=of main]{Central Algorithm}edge[<->](GA)edge(main);
+\node[entity](plot)[below=of main]{Graph Generator}edge[<-](FCal)edge[->](main);
+\end{tikzpicture}
+
+
+Pre-initializations consists of some simple set-ups of matrices, options generated for simple selections for user-friendly interfaces, along with number of constants that are pre-loaded into the memory.  There are option to whether to simply calculate without attempting to fit (bypassing Genetic Algorithm), or to use fitting procedure which calls Genetic Algorithm into action.  The Genetic Algorithm is based on the article by Wormington et al \cite{Wormington1}with some minor modifications.  This module repetitively calls up on the Central Algorithm to generate each iteration of possible model fit for each population of the parameters to be evaluated.  Once the cycle is completed, the result is then forwarded to Graph Generator to be plotted back into the Main Interface.  However, this diagram only illustrates the first layer of the logistics involved.  The Central Algorithm, by itself, is also yet another set of packages in a specific process.
+
+\begin{tikzpicture}
+\node[relationship](FCal){Central Algorithm};
+\node[attribute](T)[below left =of FCal]{Transmission} edge (FCal);
+\node[attribute](I)[below right =of FCal]{Incoherent Scattering} edge (FCal);
+\node[entity](cycler)[below =of FCal]{Cycler} edge (FCal);
+\node[attribute](DS)[below =of cycler]{Initialization} edge (cycler);
+\node[attribute](Sub)[below right =of cycler]{Substrate} edge (cycler);
+\node[attribute](layers)[below left =of cycler]{Layers} edge(cycler);
+\node[attribute](mats)[right =of cycler]{Material Database} edge [->] (cycler);
+\node[attribute](BE)[above left  =of layers]{Broadening} edge [->] (layers);
+\end{tikzpicture}
+
+The Initialization, if fitting procedure is involved, will analyze and extract the experimental data's points, resolution, substrate peak location, etc and perform additional basic conversion process for transition between graph data to mathematical matrix.  Once that is completed, the Substrate is called to calculate the substrate diffraction profile, since the mathematical  operations between layers and substrate is significantly different.  For additional explanations, please refer to the article \cite{Shreeman1}.  As the Cycler iterate from substrate toward top-most layer, calling upon Layers for subsequent layer calculations, while updating the current material parameters by accessing Material Database.  Each time a layer is calculated, broadening effect is also calculated (Broadening).  When the cycling is completed, the data is then forwarded back into Central Algorithm which then use Transmission (to calculate transmission coefficients), and Incoherent Scattering (to calculate the diffuse scattering).
+
+\section{Capabilities}
+
+This section discusses some of the program's properties.
+
+The following reflections has been implemented (it's quite easy to add more if necessary),
+{\SingleSpacing
+\begin{itemize}
+\item  {[004]}
+\item {[111]}
+\item {[224]}
+\item { [113]}
+\item{ [002]}
+\item{ [022]}
+\end{itemize}}
+and all are available in \emph{grazing exit}, \emph{grazing incidence}, or \emph{symmertical} geometry.  The material database that has been developed contains seven different types of materials:
+{\SingleSpacing
+\begin{enumerate}
+\item Si
+\item Ge
+\item Si$_{x}$Ge$_{1-x}$
+\item GaAs
+\item GeGaAs (Diamond structure)
+\item Ge-GaAs (hybrid of Diamond/Zincblende structure)
+\item AlGaAs (Zincblende structure)
+\end{enumerate}}
+
+The background noise fitting can be done several ways.  First one is basic ``flatline'' addition of base noise which can be used in complementary form with second function of square root of the intensity.  The third method is recommended.  The data set sampling of control sample is used as a background.  The only pitfall of the third approach is the unnatural enhancement of intensity near and around the diffraction peaks.  It is possible to modify the control sample data sets to reduce that effect based on logarithmic approach.
+
+In fitting algorithm, four parameters are automatically included (thickness, strain, $\Delta_m$, and $E$).  The composition is not included since the strain will compound that parameter since they both have same effect on the diffraction profile.  A selection of diffraction profile can be done by setting a range of the angle for the best-fit focus instead of using entire scan.  For adjustment, horizontal and vertical adjustments are also manually done.
+
+There are no set limit on how many layers that can be added into the model, and the broadening effect can be toggled on or off for control studies.
+
+\section{Recommendations}
+
+For further development, and incorporation into the fabs for quick characterization, it is highly recommended that the algorithms are to be re-coded into a different language(s), and integrated with more intensive GUI interface for much more user-friendly interfaces.  There are plenty of work to be done in regards to programming, logistics, and improvements in genetic algorithms along with fit evaluators.  
+
+\begin{itemize}
+\item  If the structures of the samples are known, and certain expectations of particular type of structure can be predicted, then templates of possible models would be productive.
+\item One of issues that may be addressed during modification for inclusion in fab  is to reduce the time and span of calculation for selected area of fitting.  Currently, entire span of experimental data is calculated for every iteration.
+\item  It also may be more effective if fixed parameters of given layer properties are calculated before going into iterations, instead of re-calculating it for every cycle of layer or genetic algorithm evaluations.  
+\item Substrate calculations remain constant throughout the simulations, so it also may be possible to exclude the substrate calculations from cycle and iterations once it has been calculated.
+\end{itemize}
+
+\section{Sample Codes}
+The sample code provided here is designed to help start up potential repeatability experiment and in full disclosure as much as possible.  However, it is not designed to be comprehensive, and has several omissions and some modifications for better viewing purposes.  Each package (*.m) which is written in machine language is preluded by a notebook (*.nb)  which is posted here.  Each subsection is classified according to the diagram above, with file name on bottom of figure for reference in the code.
+
+\begin{figure}[h]
+\subsection{Main Interface}
+\shadowbox{
+\includegraphics[width=\linewidth]{Main-Notebook}
+}
+\end{figure}
+
+
+\begin{figure}[h]
+\subsection{Constants}
+\shadowbox{
+\includegraphics[width=0.75\linewidth]{Constants-Notebook}
+}\\constants.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Pre-initializations}
+\begin{minipage}{.5\linewidth}
+\shadowbox{
+\includegraphics[scale=0.75]{HKL-Notebook}}\\HKL.nb
+\end{minipage}\begin{minipage}{.5\linewidth}\shadowbox{ \includegraphics[scale=0.75]{Matrix-Notebook}}\\Matrix.nb\end{minipage}
+\end{figure}
+
+\begin{figure}[p]
+\subsection{Genetic Algorithm}
+\shadowbox{
+\includegraphics[width=\linewidth]{Genetics-Notebook}
+}\\Genetics.nb: Page 1
+\end{figure}
+\begin{figure}[p]
+\shadowbox{
+\includegraphics[width=\linewidth]{Genetics-Notebook2}
+}\\Genetics.nb: Page 2
+\end{figure}
+\begin{figure}[ht]
+\shadowbox{
+\includegraphics[width=\linewidth]{Genetics-Notebook3}
+}\\Genetics.nb: Page 3
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Central Algorithm}
+\shadowbox{
+\includegraphics[width=\linewidth]{Central-Notebook}
+}\\FinalCal.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Transmission}
+\shadowbox{
+\includegraphics[width=\linewidth]{Transmit-Notebook}
+}\\Transmit.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Incoherent Scattering}
+\shadowbox{
+\includegraphics[width=\linewidth]{Incoherent-Notebook}
+}\\Incoherent.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Cycler}
+\shadowbox{
+\includegraphics[width=\linewidth]{Cycler-Notebook}
+}\\Cycler.nb
+\end{figure}
+ 
+\begin{figure}[h]
+\subsection{Silicon: Material Database}
+\shadowbox{
+\includegraphics[width=\linewidth]{Si-Notebook}}\\Si.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Silicon-Germanium : Material Database}
+\shadowbox{
+\includegraphics[width=\linewidth]{SiGe-Notebook}}\\SiGe.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Initialization}
+\shadowbox{
+\includegraphics[width=\linewidth]{DegSet-Notebook}}\\DegreeSetup.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Substrate}
+\shadowbox{
+\includegraphics[width=\linewidth]{Substrate-Notebook}}\\Substrate.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Layers}
+\shadowbox{
+\includegraphics[width=\linewidth]{layers-Notebook}}\\layers.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Broadening}
+\shadowbox{
+\includegraphics[width=\linewidth]{BxFxn-Notebook}}\\BeFxn.nb
+\end{figure}
+
+\begin{figure}[h]
+\subsection{Graph Generator}
+\shadowbox{
+\includegraphics[width=\linewidth]{Plotter-Notebook}}\\plotter.nb
+\end{figure}
+
+
+
+	\chapter{Amplitude Reflection Coefficient Modification}\label{ARCM}
+
+Starting with the basic definition,
+\begin{align}
+E_h^{(m)}(z=l_m) =  R^{(m-1)} E_o^{(m)}(z=l_m)
+\end{align}
+The broadening effect parameter, $B_e$, is added to modulate the amplitude reflection coefficient to incorporate the broadening of the dynamical diffraction profile.
+\begin{align}
+E_h^{(m)}(z=l_m) = B_e R^{(m-1)} E_o^{(m)}(z=l_m)
+\end{align}
+Substituting from  the equations (\ref{sol1}, \ref{sol2})
+\begin{align}
+A_{h1}^{(m)} e^{i \epsilon_1^{(m)} l_m}+A_{h2}^{(m)} e^{i \epsilon_2^{(m)} l_m}= B_e R^{(m-1)}(A_{o1}^{(m)} e^{i \epsilon_1^{(m)} l_m}+A_{o2}^{(m)} e^{i \epsilon_2^{(m)} l_m}) 
+\end{align}
+Using the definition of $A_{h1}^{(m)}=P_1^{(m)} A_{o1}^{(m)} $ and $A_{h2}^{(m)}=P_2^{(m)} A_{o2}^{(m)} $
+\begin{align}
+P_1^{(m)} A_{o1}^{(m)} e^{i \epsilon_1^{(m)} l_m}+ P_2^{(m)}A_{o2}^{(m)} e^{i \epsilon_2^{(m)} l_m}=B_e R^{(m-1)}(A_{o1}^{(m)} e^{i \epsilon_1^{(m)} l_m}+A_{o2}^{(m)} e^{i \epsilon_2^{(m)} l_m})\\
+P_1^{(m)} A_{o1}^{(m)} e^{i \epsilon_1^{(m)} l_m}+ P_2^{(m)}(1-A_{o1}^{(m)}) e^{i \epsilon_2^{(m)} l_m}=B_e R^{(m-1)}(A_{o1}^{(m)} e^{i \epsilon_1^{(m)} l_m}+(1-A_{o1}^{(m)}) e^{i \epsilon_2^{(m)} l_m})
+\end{align}
+where the definition of $A_{o1}^{(m)} + A_{o2}^{(m)}=1$ is used.  A more accurate definition would be based on Punegov's definition of $A_{o1}^{(m)} + A_{o2}^{(m)}=T^{(m)}$, but since for coherent diffraction, all transmission coefficients are canceled due to ratio relationship except for the $T^{(M)}$ which is the topmost coefficient.  That term will equal unity due to incident beam assumption of unity.  Hence that term is not used in this section.
+\begin{align}
+P_1^{(m)} A_{o1}^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}+ P_2^{(m)}(1-A_{o1}^{(m)}) =B_e R^{(m-1)}(A_{o1}^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}+1-A_{o1}^{(m)}) \\
+P_1^{(m)} A_{o1}^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}+ P_2^{(m)}  - P_2^{(m)} A_{o1}^{(m)} =B_e R^{(m-1)}(A_{o1}^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}+1-A_{o1}^{(m)}) \\
+P_1^{(m)} A_{o1}^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}+ P_2^{(m)}  - P_2^{(m)} A_{o1}^{(m)} =B_e R^{(m-1)}A_{o1}^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}+ B_e R^{(m-1)}-B_e R^{(m-1)}A_{o1}^{(m)}\\
+P_1^{(m)} A_{o1}^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m} - P_2^{(m)} A_{o1}^{(m)}-B_e R^{(m-1)}A_{o1}^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}+B_e R^{(m-1)}A_{o1}^{(m)} =- P_2^{(m)}  + B_e R^{(m-1)}\\
+ A_{o1}^{(m)} =\frac{- P_2^{(m)}  + B_e R^{(m-1)}}{P_1^{(m)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m} - P_2^{(m)} -B_e R^{(m-1)} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}+B_e R^{(m-1)}}\\
+A_{o1}^{(m)} =\frac{ (B_e R^{(m-1)}- P_2^{(m)}) }{B_e R^{(m-1)}  - P_2^{(m)} + (P_1^{(m)}- B_e R^{(m-1)}) e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}}\\
+A_{o1}^{(m)} =\frac{ 1 }{1 + \frac{P_1^{(m)}- B_e R^{(m-1)}}{B_e R^{(m-1)}- P_2^{(m)}} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}}\\
+A_{o1}^{(m)} =\frac{ 1 }{1 -Q^{(m)}}\\
+\text{where   } Q = \frac{P_1^{(m)}- B_e R^{(m-1)}}{ P_2^{(m)}-B_e R^{(m-1)}} e^{i (\epsilon_1^{(m)}-\epsilon_2^{(m)}) l_m}
+\end{align}
+
+	\chapter{Geometry of HRXRD scans}\label{machine}
+
+In this dissertation, there are six major types of geometry used in HRXRD scans.  First set of three are done in traditional sense of \emph{rocking curve} where only the sample is rotated across the reciprocal space.  These type of scans are called \emph{Open Wide (OW)} for SiGe chapter due to the configuration of the system.  The second set involves slightly more sophisticated method of rotating both sample and detector arm to do a longitudinal scan which I frequently refer as a skewed scan (for non-symmertical reflections) or $\omega/2t\theta$ (\emph{w-2th} in graphs) scans.
+
+
+\begin{figure}[h]
+\centering
+\caption{General Diffractometer with axial labels}
+\label{D8}
+\includegraphics[width=\linewidth]{D8.jpg}
+\end{figure}
+
+In the \fref{D8-Graze}, in traditional style of \emph{rocking curve}, the detector arm (axis 2) is rotated until the Bragg's law condition is met.  Once that is completed, the sample is rotated on axis 3 alone for given scan.  In non-symmetrical geometry, the diffracting planes are not normal to the surface of the sample.  As result, when the Bragg's law condition is met, the diffraction beams will ``graze'' the sample known as either \emph{grazing exit} or \emph{grazing incidence}.  
+
+
+\begin{figure}[h]
+\centering
+\caption{Grazing Configuration}
+\label{D8-Graze}
+\includegraphics[width=\linewidth]{D8-Graze.jpg}
+\end{figure}
+
+In the \fref{D8-skew},  in non-symmertical geometry, there is a difference in sample's orientation in relation to the diffracting planes.  The sample is rotated on axis 4 and axis 1 until the normal vector of diffracting planes comes in parallel to the rotating planes of detector arm and bisects the angle between detector and source arms.   In this configuration, symmertical-like operation is possible on the non-symmertical diffraction planes.     
+
+\begin{figure}[h]
+\centering
+\caption{General Diffractometer with axial labels}
+\label{D8-skew}
+\includegraphics[width=\linewidth]{D8-skew.jpg}
+\end{figure}
+
+
+
+
+	\chapter{Definition of Variables}\label{DefVar}
+The units listed in this table may not always be used.  It only serves to offer concept of what type of units to expect from these specific parameters for easy reference.  For example, the reflection vector ($hkl$) does not usually come in $nm^{-1}$ format, but in inversed distance units in abstract crystalline structure.  Instead of explaining specific typical parameters in their usual formats, \emph{type} of expected units are listed.  There are many unit-less parameters that are listed as ``--'' in the unit column.
+
+\begin{table}
+\begin{longtable}{|c|l|c|}
+\hline
+\textbf{Symbol}               		& \textbf{Definition} &\textbf{Units} \\
+\hline\
+$\chi_h$               & Polarizability in diffracted direction ($\vec{h} = hkl$)  &--\\
+$\chi_{\overline{h}}$  & Polarizability in reversed diffraction direction ($\vec{h}=\overline{hkl}$) &--\\
+$\chi_o$       		 & Polarizability in incident direction ($\vec{h} =0$) &--\\
+$\gamma_o $      	 & Direction cosine in incident direction &--\\
+$\gamma_h$		 & Direction cosine in diffracted direction &--\\
+$b$           		& Asymmetry factor ($b = -1$ for symmetrical Bragg geometry) &--\\
+$E_o$          		& Incident beam amplitude & --\\
+$E^c_o$         	& Coherent incident beam amplitude &--\\
+$E_h$          		& Diffracted beam amplitude &--\\
+$E^c_h$        	 & Coherent diffracted beam amplitude &--\\
+$E$          		 & Static Debye-Waller factor ($E=<\phi>$) &--\\  
+$K$           		& Polarization (set to unity for sigma polarization) &--\\
+$k$        		& Wavevector of X-ray in vacuum  &$ nm^{-1}$\\
+$\eta_d$       	 & Deviation parameter in traditional dynamical formalism &--\\
+$\eta$	 	& Bushuev simplified deviation parameter  &$ nm^{-1}$\\
+$\eta^\prime$  	& Bushuev simplified deviation parameter with strain  &$ nm^{-1}$\\
+$\theta_B$       	& Bragg Angle & $radians$ \\
+$\phi$       	  	& Lattice phase factor $\phi = e^{i\vec{h} \vec{u}}$&--\\
+$\vec{u}$        	& Displacement vector from the ideal lattice point & $\vect{nm}$\\
+$\vec{h}$        	& Reflection vector in reciprocal space & $\vect{nm^{-1}}$\\
+%\pagebreak
+$a_{oo}$        & Transmission term for the incident amplitude in incident direction & $ nm^{-1}$ \\
+$a_{oh}$        & Coupling term between incident and backward diffracted amplitudes in incident direction &$ nm^{-1}$\\
+$a_{ho}$        & Coupling term between incident and diffracted amplitude in diffracted direction & $ nm^{-1}$\\
+$a_{hh}$        & Transmission term for the diffracted beam in diffracted direction & $ nm^{-1}$\\
+$\epsilon_1$	& Phase function of the wave solution attributed with terms of $A_{o1},A_{h1}$ & $ nm^{-1}$\\
+$\epsilon_2$	& Phase function of the wave solution attributed with the terms of $A_{o2},A_{h2}$ &$ nm^{-1}$\\
+$A_{o1}$				& Unknown coefficient in first term of the general solution for incident direction equation & --\\
+$A_{o2}$				& Unknown coefficient in second term of the general solution for incident direction equation & --\\
+$A_{h1}$				&Unknown coefficient in first term of the general solution for diffracted direction equation &--\\
+$A_{h2}$				&Unknown coefficient in second term of the general solution for diffracted direction equation &--\\		
+$\mu$          & Traditional photoelectric absorption ($\mu=k \text{Im}(\chi_o))$  &$ nm^{-1}$\\
+$\mu_h$         & Photoelectric absorption with direction cosine ($\mu_h=\mu /\gamma_h$)  &$ nm^{-1}$\\
+$t,t_n$           & Thickness of given layer (thickness of nth layer) & $nm$ \\
+$t_T$					& Total thickness of all layers (excluding substrate) & $nm$ \\
+$P_n$`				& Weighted Percentage of nth layer based on its thickness & --\\
+$z$						& A depth function of general solution where $z=0$ for top or $z=t$ for bottom of given layer & $nm$ \\
+$\tau$         & Complex correlation length  &$ nm^{-1}$\\
+$\tau_r$        & Real part of complex correlation length  &$ nm^{-1}$\\
+$\tau_i$         & Imaginary part of complex correlation length  &$ nm^{-1}$\\
+$I^i_o$         & Incoherent incident intensity &--\\
+$I^i_h$         & Incoherent diffracted intensity &--\\
+$R^c_l$         & Reflection amplitude of given layer ($1$) &--\\
+$R^c_{l-1}$       & Reflection amplitude of layer below given layer ($l$) & --\\ 
+$l_{ss}$        & ``Effective'' thickness of layer where $ss = 11,12,22$ & $nm$\\
+$a_o$          & Nominal unstrained lattice parameter & $nm$\\
+$a_s$          & Strained lattice parameter  & $nm$ \\
+$\Delta_M$ & Width of the Mosaic distrubtion function  & --\\
+\hline
+\end{longtable}
+\end{table}
+
+
+\bibliography{C:/MyDocs/Bibtex/20111029FullBio}
+%	\bibliographystyle{plain}
+	\bibliographystyle{pss}
+%	\bibliographystyle{ieeetr}
+%	\bibliographystyle{iucr}
+%\nocite{*}%%%Lists everything that is in the xray.bib
+	
+\end{document}
