@@ -1,0 +1,159 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% file:: CNSEthesis.sty
+%%% Developed by Paul K. Shreeman
+%%% Designed for College of Nanoscale Science & Engnineering Thesis: May be used for others if same guidelines apply
+%%% Version 0.0.1 --November 10, 2010
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{CNSEthesis}[2010/10/16]
+\NeedsTeXFormat{LaTeX2e}
+%% Only works with the memoir class!!!!!!!!!!!!!!!
+\@ifclassloaded{memoir}{\let\endCNSEthesis\relax}{\let\CNSEthesis\endinput
+\PackageError{CNSEthesis}{The CNSEthesis package only works with the memoir class}%
+{\@ehd}}
+\endCNSEthesis
+%% setting side margins
+	\setlrmarginsandblock{1.5in}{1in}{*}
+%% Setting bottom margins
+	\setlength{\lowermargin}{1in}
+	\setlength{\textheight}{\paperheight}
+	\addtolength{\textheight}{-\uppermargin}
+	\addtolength{\textheight}{-\lowermargin}
+%% footnote settings
+	\setlength{\footskip}{\onelineskip}
+	\setlength{\footnotesep}{\onelineskip}
+%% setting up the top margins
+	\newlength{\linespace}
+	\setlength{\linespace}{\baselineskip} 	% current equivalent of \onelineskip
+	\setlength{\headheight}{\onelineskip}
+	\setlength{\headsep}{\linespace}
+	\addtolength{\headsep}{-\topskip}
+	\setlength{\uppermargin}{1in}
+	\addtolength{\uppermargin}{\headheight}
+	\addtolength{\uppermargin}{\headsep}
+%% the fiddle lengths (..ta.. for title/approval page, others for prelims)
+	\newlength{\toptafiddle} \setlength{\toptafiddle}{2\linespace}
+	\newlength{\bottafiddle} \setlength{\bottafiddle}{0pt}
+	\newlength{\topfiddle} \setlength{\topfiddle}{\toptafiddle}
+	\newlength{\botfiddle} \setlength{\botfiddle}{\onelineskip}
+%% Paragraph indexing tabs
+	\setlength{\parindent}{2em}
+	\checkandfixthelayout[nearest]
+%% Style for Page numbering all on centered bottom
+	\makepagestyle{CNSE}
+%	\makeevenhead{CNSE}{\thepage}{}{} %%For single page, all odd pages are used.
+	\makeoddhead{CNSE}{}{}{}
+	\makeoddfoot{CNSE}{}{\thepage}{}
+%% Abstract page
+	\newcommand*{\pretoctitle}[1]{{\clearpage\centering
+	\vspace*{-\topfiddle}#1\par}}
+	\newcommand{\cnseabstract}{%
+	\pretoctitle{Abstract}}
+%% Thesis page
+	\newcommand{\cnsethesis}{%
+	\pretoctitle{Dissertation Thesis}}
+%%%% The LoF
+	\renewcommand{\listfigurename}{List of Figures}
+	\addtodef{\listoffigures}{\clearpage}{}
+	\renewcommand*{\lofheadstart}{\vspace*{-\topfiddle}}
+%%% The LoT
+	\renewcommand{\listtablename}{List of Tables}
+	\addtodef{\listoftables}{\clearpage}{}
+	\renewcommand*{\lotheadstart}{\vspace*{-\topfiddle}}
+%%%% Do the ToC
+	\renewcommand{\contentsname}{Table of Contents}
+	\addtodef{\tableofcontents}{\clearpage}{}
+%	\renewcommand*{\tocheadstart}{\vspace*{-\topfiddle}}
+%	\renewcommand*{\aftertoctitle}{\thispagestyle{plain}%
+%	\par\nobreak \mbox{}\hfill{\normalfont Page}\par\nobreak}
+%% chapter style
+	\makechapterstyle{cnse}{%
+	\setlength{\beforechapskip}{-\topfiddle}
+	\setlength{\midchapskip}{1.0\onelineskip}
+	\setlength{\afterchapskip}{1.0\onelineskip}
+%	\renewcommand*{\chapnamefont}{\normalfont}
+	\renewcommand*{\chapnumfont}{\chapnamefont}
+	\renewcommand*{\printchapternum}{\centering\chapnumfont \thechapter}
+	\renewcommand*{\chaptitlefont}{\normalfont\centering}
+	\renewcommand*{\printchapternonum}{}}
+%%%% for the title page and approval page.
+	\newcommand{\settitle}[1]{\def\cnsetitle{#1}}
+	\newcommand{\setauthor}[1]{\def\cnseauthor{#1}}
+	\newcommand{\setdoctype}[1]{\def\cnsedoctype{#1}}
+	\newcommand{\masters}{\def\cnsedegree{Master of Science}}
+	\newcommand{\doctors}{\newcommand{\cnsedegree}{Doctor of Philosophy}}
+	\newcommand{\setdefdate}[1]{\def\cnsedefdate{#1}}
+	\newcommand{\setgraddate}[1]{\def\cnsegraddate{#1}}
+	\newcommand{\setchair}[1]{\def\cnsechair{#1, Chair}}
+	\newcommand{\setchairs}[2]{\def\cnsechair{#1, Co-chair \\ #2, Co-chair}}
+	\newcommand{\setmembers}[1]{\def\cnsemembers{#1\par}}
+%%% typesets the TITLE page
+	\newcommand{\thetitlepage}{{%
+	\clearpage
+	\thispagestyle{empty}
+	\centering
+	\vspace*{-\toptafiddle}
+	\cnsetitle \\ by \\ \cnseauthor
+	\vfill
+	{\SingleSpace
+	A \cnsedoctype\\
+	Submitted to University at Albany, State University of New York\\
+	in  Partial Fulfillment of\\
+	the Requirements for the Degree of \\
+	\cnsedegree\par}
+	\vfill
+	College of Nanoscale Science and Engineering \\
+	\cnsegraddate
+	\par
+	\enlargethispage{\bottafiddle}
+	\clearpage}}
+%%% typesets proposal titlepage
+	\newcommand{\proposaltitlepage}{{%
+	\clearpage
+	\thispagestyle{empty}
+	\centering
+	\vspace*{\toptafiddle}
+	\cnsetitle \\
+	\vspace*{\toptafiddle}
+	 by \\
+	\vspace*{\toptafiddle}
+	\cnseauthor
+	\vfill
+	{\SingleSpace
+	A Proposed Research Presented\\
+	 for the Doctoral Dissertation \\
+	\par}
+	\vfill
+	Dissertation Committee: \\[-0.5\onelineskip]
+	{\SingleSpacing
+	\cnsechair \\
+	\cnsemembers
+	}
+	\vfill
+	College of Nanoscale Science and Engineering \\
+	University at Albany\\
+	State University of New York\\
+	\par
+	\enlargethispage{\bottafiddle}
+	\clearpage}}
+%%% typesets the APPROVAL page
+	\newcommand{\approvalpage}{{%
+	\thispagestyle{empty}
+	\centering
+	\vspace*{-\toptafiddle}
+	\cnsetitle \\ by \\ \cnseauthor \\[3\onelineskip]
+	has been approved \\
+	\cnsedefdate
+	\vfill
+	Graduate Supervisory Committee: \\[-0.5\onelineskip]
+	{\SingleSpacing
+	\cnsechair \\
+	\cnsemembers}
+	\vfill
+	ACCEPTED BY THE GRADUATE COLLEGE
+	\par
+	\enlargethispage{\bottafiddle}
+	\clearpage}}
+%%
+%End of the CNSEthesis file
+\endinput
